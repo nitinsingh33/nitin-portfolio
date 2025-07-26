@@ -1,4 +1,4 @@
-import HeroImg from "@/assets/images/hero.jpg";
+import HeroImg from "@/assets/images/picme.jpg";
 import OlovaLogo from "@/assets/images/olova.png";
 
 export default function About() {
@@ -24,7 +24,7 @@ export default function About() {
 
             <div className="relative space-y-4">
               <p className="text-white">
-                Hello! I'm Nazmul Hossain, a passionate JavaScript developer
+                Hello! I'm Nitin Singh, a passionate Frontend developer
                 specializing in creating innovative web solutions and
                 user-friendly interfaces.{" "}
                 <span className="font-bold text-white">

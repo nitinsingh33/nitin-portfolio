@@ -50,17 +50,17 @@ export default function Hero() {
 
   const [code] = useState(`
 const profile = {
-    name: 'Nazmul Hossain',
+    name: 'Nitin Singh',
     title: 'Full-Stack Developer | Cloud Enthusiast | Problem Solver',
     skills: [
-        'React', 'NextJS', 'Redux', 'Express',
+        'React.js', 'NextJS', 'Redux', 'Express',
         'MySQL', 'MongoDB', 'Docker', 'AWS', 'TypeScript',
-        'GraphQL', 'Git', 'Linux', 'Discord Development'
+        'Git'
     ],
     hardWorker: true,
     quickLearner: true,
     problemSolver: true,
-    yearsOfExperience: 4, 
+    yearsOfExperience: 2, 
     hireable: function() {
         return (
             this.hardWorker &&
@@ -138,8 +138,7 @@ const profile = {
       <main className="bg-[#020617] text-white min-h-screen">
         <section
           className="hero min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 py-10 md:py-16 lg:py-0 hero-section-padding"
-          style={{ paddingTop: "var(--hero-padding-top, 0)" }}
-        >
+          style={{ paddingTop: "var(--hero-padding-top, 0)" }}>
           <div className="absolute inset-0"></div>
 
           {/* Choose one of these background options */}
@@ -166,8 +165,7 @@ const profile = {
                 window.innerHeight <= 775
                   ? "12rem"
                   : "",
-            }}
-          >
+            }}>
             {/* Left column - Text content */}
             <div className="w-full lg:w-1/2 mb-12 lg:mb-0 animate__animated animate__fadeInLeft relative">
               {/* Decorative blurs */}
@@ -178,19 +176,21 @@ const profile = {
               <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 mb-6 sm:mb-8 animate__animated animate__fadeInDown animate__delay-1s">
                 <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></div>
                 <span className="text-gray-300 text-xs sm:text-sm font-medium">
-                  Welcome to my universe
+                  Welcome to my desk
                 </span>
               </div>
 
               {/* Name section */}
-              <div className="relative mb-6 sm:mb-8">
+              <div className="relative mb-6 sm:mb-8 font-[Inter]">
                 <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight">
-                  <SparklesText text="Hello" />
-                  <span className="relative inline-block">
+                  <span className="inline-block animate-fadeInUp  opacity-0 animation-delay-0">
+                    Hello,
+                  </span>{" "}
+                  <span className="inline-block animate-fadeInUp opacity-0 animation-delay-200">
                     I&apos;m
                     <span className="typing-effect gradient-text">
                       {" "}
-                      Nazmul Hossain
+                      Nitin Singh
                     </span>
                   </span>
                 </h1>
@@ -210,9 +210,11 @@ const profile = {
 
               {/* Description */}
               <div className="relative mb-8 sm:mb-12 max-w-xl">
-                <p className="text-base sm:text-xl text-gray-300/90 leading-relaxed">
-                  JavaScript lover 🚀 | OlovaJS creator 🔧 | Crafting frameworks
-                  and coding the future 💻✨
+                <p className="text-base sm:text-lg text-gray-200 leading-relaxed tracking-wide font-medium font-sans">
+                  SDE Intern @Hero MotoCorp (EMBU) &nbsp;|&nbsp; BS in CS & Data
+                  Analytics @IIT Patna &nbsp;|&nbsp; Former Intern @Apna College
+                  &nbsp;|&nbsp; Full Stack Developer &nbsp;|&nbsp; GPT &
+                  Automatio
                 </p>
               </div>
 
@@ -221,8 +223,7 @@ const profile = {
                 {/* View Projects Button */}
                 <a
                   href="https://github.com/seraprogrammer"
-                  className="group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-blue-500 to-teal-400 p-0.5 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_2rem_-0.5rem_#60A5FA]"
-                >
+                  className="group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-blue-500 to-teal-400 p-0.5 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_2rem_-0.5rem_#60A5FA]">
                   <span className="block w-full px-6 sm:px-8 py-3 sm:py-4 rounded-[11px] bg-gray-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-teal-400">
                     <span className="relative flex items-center justify-center gap-2 text-white font-medium">
                       <span>Learn More</span>
@@ -234,8 +235,7 @@ const profile = {
                 {/* Contact Button */}
                 <a
                   href="#"
-                  className="group relative inline-flex items-center justify-center gap-3 p-0.5 rounded-xl bg-gradient-to-r from-gray-800 to-gray-700 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_2rem_-0.5rem_#60A5FA]"
-                >
+                  className="group relative inline-flex items-center justify-center gap-3 p-0.5 rounded-xl bg-gradient-to-r from-gray-800 to-gray-700 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_2rem_-0.5rem_#60A5FA]">
                   <span className="block w-full px-6 sm:px-8 py-3 sm:py-4 rounded-[11px] bg-gray-900 border border-gray-700/50 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-gray-800 group-hover:to-gray-700">
                     <span className="relative flex items-center justify-center gap-2 text-gray-300 font-medium group-hover:text-white">
                       <span>Get Resume</span>

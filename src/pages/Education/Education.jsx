@@ -15,21 +15,21 @@ const EducationSection = () => {
 
   const educationData = [
     {
-      degree: "Secondary School Certificate (SSC)",
-      school: "Natore Textile Institute",
+      degree: "Comuter Science and Data Analytics (BS)",
+      school: "IIT Patna",
       mascot: "📘",
-      year: "2019-2021",
-      achievements: ["GPA: 4.89", "Subject: Science"],
-      skills: ["Mathematics", "Physics", "Chemistry", "Biology"],
+      year: "2023-2027",
+      achievements: ["CPI: 7.91", "Core: Computer Science"],
+      skills: ["Java", "Python", "React", "Node"],
       description:
         "Focused on core science subjects with emphasis on practical laboratory work and scientific research methodologies.",
     },
     {
-      degree: "Higher Secondary Certificate (HSC)",
-      school: "Dottopara Model Degree College",
+      degree: "Senior Secondary Certificate (CBSE)",
+      school: "Rose Land Public School, Gurugram",
       mascot: "📗",
       year: "2021-2023",
-      achievements: ["GPA: 4.25", "Subject: Arts"],
+      achievements: ["Percentage: 81%", "Subject: PCM"],
       skills: ["Literature", "Social Studies", "Economics", "History"],
       description:
         "Developed strong analytical and critical thinking skills through comprehensive study of humanities and social sciences.",
@@ -74,10 +74,10 @@ const EducationSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent mb-6">
-            Educational Journey
+          <h2 className="font-heading text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent mb-6">
+            Educations
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto text-lg">
+          <p className="font-sans font-text-gray-300 max-w-2xl mx-auto text-lg">
             Discover how academic excellence shapes innovative thinking and
             professional growth.
           </p>

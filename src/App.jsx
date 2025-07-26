@@ -27,7 +27,6 @@ export default function App() {
           <Contact />
         </>
       ) : (
-        // Router Mode: Use routes for navigation
         <Routes>`
           <Route path="/" element={<Hero />} />
           <Route path="/skills" element={<Skills />} />
