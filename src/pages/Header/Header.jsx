@@ -9,41 +9,47 @@ import {
   FaEnvelope,
   FaBars,
 } from "react-icons/fa";
-import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
-  const location = useLocation();
-  const [activeLink, setActiveLink] = useState(() => {
-    const path = location.pathname.substring(1) || "home";
-    return path;
-  });
+  const [activeLink, setActiveLink] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+  const navLinks = [
+    { id: "hero", icon: FaHome, text: "Home" },
+    { id: "skills", icon: FaCode, text: "Skills" },
+    { id: "experience", icon: FaBriefcase, text: "Experience" },
+    { id: "education", icon: FaGraduationCap, text: "Education" },
+    { id: "projects", icon: FaLaptopCode, text: "Projects" },
+    { id: "contact", icon: FaEnvelope, text: "Contact" },
+  ];
+
+  // Scroll listener to auto-highlight active section
   useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      for (const { id } of navLinks) {
+        const section = document.getElementById(id);
+        if (section) {
+          const offsetTop = section.offsetTop;
+          const offsetHeight = section.offsetHeight;
+          if (scrollY >= offsetTop - 80 && scrollY < offsetTop + offsetHeight - 80) {
+            setActiveLink(id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { id: "home", icon: FaHome, text: "Home", path: "/" },
-    { id: "skills", icon: FaCode, text: "Skills", path: "/skills" },
-    {
-      id: "experience",
-      icon: FaBriefcase,
-      text: "Experience",
-      path: "/experience",
-    },
-    {
-      id: "education",
-      icon: FaGraduationCap,
-      text: "Education",
-      path: "/education",
-    },
-    { id: "projects", icon: FaLaptopCode, text: "Projects", path: "/projects" },
-    { id: "contact", icon: FaEnvelope, text: "Contact", path: "/contact" },
-  ];
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-gray-900/95 backdrop-blur-md md:bg-transparent md:backdrop-blur-none">
@@ -52,8 +58,10 @@ export default function Header() {
           <nav className="bg-gray-900/90 backdrop-blur-md md:rounded-full px-4 md:px-6 py-2.5">
             {/* Mobile Menu Button */}
             <div className="flex justify-between items-center md:hidden px-2">
-              <Link to="/" className="text-white font-bold">Portfolio</Link>
-              <button 
+              <a href="#hero" className="text-white font-bold">
+                Portfolio
+              </a>
+              <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-white p-2"
               >
@@ -62,12 +70,12 @@ export default function Header() {
             </div>
 
             {/* Navigation Links */}
-            <div className={`${isMenuOpen ? 'block' : 'hidden'} md:block`}>
+            <div className={`${isMenuOpen ? "block" : "hidden"} md:block`}>
               <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-1 lg:gap-2 py-4 md:py-0">
-                {navLinks.map(({ id, icon: Icon, text, path }) => (
-                  <Link
+                {navLinks.map(({ id, icon: Icon, text }) => (
+                  <a
                     key={id}
-                    to={path}
+                    href={`#${id}`}
                     onClick={() => {
                       setActiveLink(id);
                       setIsMenuOpen(false);
@@ -88,7 +96,7 @@ export default function Header() {
                       }`}
                     />
                     <span className="inline">{text}</span>
-                  </Link>
+                  </a>
                 ))}
               </div>
             </div>
@@ -96,6 +104,7 @@ export default function Header() {
         </div>
       </div>
 
+      {/* Gradient animation keyframes */}
       <style>{`
         @keyframes gradient-x {
           0%, 100% {

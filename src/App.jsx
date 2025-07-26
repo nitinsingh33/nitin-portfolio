@@ -1,5 +1,7 @@
-import  { useState } from "react";
-import "./assets/css/index.css";
+import { useState } from "react";
+import "./assets/css/index.css"; // ✅ Make sure this file contains `html { scroll-behavior: smooth; }`
+
+// Page Components
 import Experience from "./pages/Experience/Experience";
 import Contact from "./pages/Contact/Contact";
 import Projects from "./pages/Projects/Projects";
@@ -11,29 +13,43 @@ import Education from "./pages/Education/Education";
 import { Route, Routes } from "react-router-dom";
 
 export default function App() {
-  const [isOnePage] = useState(false); 
+  const [isOnePage] = useState(true); // ✅ Enable one-page mode for smooth scroll
 
   return (
     <>
       <Header />
-      {/* Conditional Rendering */}
+
       {isOnePage ? (
-        // One-Page Mode: Render all components together
+        // ✅ One-Page Mode: All sections on the same page
         <>
-          <Hero />
-          <Skills />
-          <Experience />
-          <Education />
-          <Contact />
+          <section id="hero">
+            <Hero />
+          </section>
+          <section id="skills">
+            <Skills />
+          </section>
+          <section id="experience">
+            <Experience />
+          </section>
+          <section id="education">
+            <Education />
+          </section>
+          <section id="projects">
+            <Projects />
+          </section>
+          <section id="contact">
+            <Contact />
+          </section>
         </>
       ) : (
-        <Routes>`
+        // ❌ Multi-page mode (disabled currently)
+        <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/education" element={<Education />} />
-          <Route path="/contact" element={<Contact />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       )}
     </>
