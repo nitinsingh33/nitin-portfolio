@@ -189,7 +189,7 @@ const profile = {
                     I&apos;m
                     <span className="typing-effect gradient-text">
                       {" "}
-                      katiya Singh
+                      Hathi Singh
                     </span>
                   </span>
                 </h1>
