@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import {
   FaHome,
   FaLaptopCode,
-  FaUser,
   FaBriefcase,
   FaGraduationCap,
   FaCode,
@@ -13,7 +12,7 @@ import {
 export default function Header() {
   const [activeLink, setActiveLink] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [setWindowWidth] = useState(window.innerWidth);
 
   const navLinks = [
     { id: "hero", icon: FaHome, text: "Home" },
@@ -43,13 +42,13 @@ export default function Header() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  },);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  },);
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-gray-900/95 backdrop-blur-md md:bg-transparent md:backdrop-blur-none">
