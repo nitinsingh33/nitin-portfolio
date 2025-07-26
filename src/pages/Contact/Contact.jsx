@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Send, MapPin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
-import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -73,6 +72,7 @@ export default function Contact() {
         setStatus(result.message || "There was an error sending your message.");
       }
     } catch (error) {
+      console.error(error);
       setStatus("An error occurred. Please try again.");
     }
   };
@@ -97,7 +97,7 @@ export default function Contact() {
                   Get in Touch
                 </h2>
                 <p className="text-gray-400 text-lg">
-                  I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+                  I&#39;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
                 </p>
               </div>
 
