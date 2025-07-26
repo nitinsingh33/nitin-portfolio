@@ -6,6 +6,7 @@ import Meteors from "@/components/ui/meteors";
 import PortfolioPage from "@/pages/About/About";
 import { FlipWords } from "@/components/ui/flip-words";
 
+
 // Grid Background - Replacing the HexagonBackground
 const GridBackground = () => {
   return (
