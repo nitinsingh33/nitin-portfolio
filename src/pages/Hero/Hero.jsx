@@ -7,7 +7,6 @@ import PortfolioPage from "@/pages/About/About";
 import { FlipWords } from "@/components/ui/flip-words";
 
 
-// Grid Background - Replacing the HexagonBackground
 const GridBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
@@ -43,7 +42,7 @@ const GridBackground = () => {
 export default function Hero() {
   const words = [
     "Full-Stack Developer & UI/UX Enthusiast",
-    "JavaScript Developer & Creator of Olova.js",
+    "Learning Integration of AI/ML in Projects ",
     "Learning MARN Stack",
     "Linux & GitHub for DevOps Enthusiast",
   ];
@@ -74,8 +73,6 @@ const profile = {
 
   useEffect(() => {
     Prism.highlightAll();
-
-    // Add CSS animation for grid and dots
     const style = document.createElement("style");
     style.textContent = `
       @keyframes gridPulse {
@@ -106,7 +103,6 @@ const profile = {
     `;
     document.head.appendChild(style);
 
-    // Apply extra padding for 1366x768 resolution
     const checkResolution = () => {
       const isTargetResolution =
         window.innerWidth >= 1360 &&
@@ -141,20 +137,12 @@ const profile = {
           style={{ paddingTop: "var(--hero-padding-top, 0)" }}>
           <div className="absolute inset-0"></div>
 
-          {/* Choose one of these background options */}
           <GridBackground />
 
-          {/* Or keep the original backgrounds if you prefer */}
-          {/* <HexagonBackground /> */}
-          {/* <AnimatedGrid /> */}
-          {/* <DotBackground /> */}
-
-          {/* Meteors Effect */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <Meteors number={10} />
           </div>
 
-          {/* Main content container */}
           <div
             className="container mx-auto flex flex-col lg:flex-row items-center justify-between relative z-10 py-8 md:py-10 lg:py-12 md:pt-28 xl:pt-28"
             style={{
@@ -168,11 +156,9 @@ const profile = {
             }}>
             {/* Left column - Text content */}
             <div className="w-full lg:w-1/2 mb-12 lg:mb-0 animate__animated animate__fadeInLeft relative">
-              {/* Decorative blurs */}
               <div className="absolute hidden lg:-top-20 lg:-left-20 lg:block w-48 h-48 lg:w-64 lg:h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
               <div className="absolute hidden lg:block lg:top-40 lg:-right-20 w-48 h-48 lg:w-64 lg:h-64 bg-teal-500/10 rounded-full blur-3xl"></div>
 
-              {/* Welcome badge */}
               <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 mb-6 sm:mb-8 animate__animated animate__fadeInDown animate__delay-1s">
                 <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></div>
                 <span className="text-gray-300 text-xs sm:text-sm font-medium">
@@ -180,7 +166,6 @@ const profile = {
                 </span>
               </div>
 
-              {/* Name section */}
               <div className="relative mb-6 sm:mb-8 font-[Inter]">
                 <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight">
                   <span className="inline-block animate-fadeInUp  opacity-0 animation-delay-0">
