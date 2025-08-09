@@ -78,7 +78,7 @@ export default function Contact() {
   };
 
   return (
-    <main className="pt-20 bg-[#0c0f1a] text-white min-h-screen relative">
+    <main className="pt-0 bg-[#0c0f1a] text-white min-h-screen relative">
       <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#0a0f1c] to-[#0f172a] opacity-80 z-0" />
       <div className="absolute inset-0 blur-[80px] bg-gradient-to-tr from-blue-900/30 via-sky-700/20 to-cyan-700/10 z-0" />
 
@@ -96,7 +96,7 @@ export default function Contact() {
                 <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
                   Get in Touch
                 </h2>
-                <p className="text-gray-400 text-lg">
+                <p className="text-gray-200 text-lg">
                   I&#39;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
                 </p>
               </div>
