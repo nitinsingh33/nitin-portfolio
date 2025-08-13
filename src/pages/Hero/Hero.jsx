@@ -206,12 +206,7 @@ const profile = {
                 {/* Hire Me Button */}
                 <a
                   href="/#contact"
-                  className="relative inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg 
-                  bg-black text-blue-500 font-medium 
-                    border border-transparent 
-                    bg-gradient-to-r from-transparent to-transparent 
-                    hover:border-blue-500 hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-400 hover:text-white 
-                    transition-all duration-300 shadow-sm hover:shadow-md">
+                  className="relative inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-black text-white font-medium border-[2px] border-blue-500 hover:border-blue-600/80 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/80 hover:-translate-y-0.5 p-[2px] ">
                   <span>Hire Me</span>
                   <svg
                     className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
@@ -230,7 +225,7 @@ const profile = {
                 {/* Download CV Button */}
                 <a
                   href="#"
-                  className="relative inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-black text-white font-medium border border-white/10 hover:border-blue-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-0.5">
+                  className="relative inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-black text-white font-medium border border-white/10 hover:border-blue-600/80 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/80 hover:-translate-y-0.5">
                   <span>Download CV</span>
                   <svg
                     className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5"
