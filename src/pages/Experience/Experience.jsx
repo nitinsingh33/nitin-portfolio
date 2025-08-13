@@ -170,9 +170,9 @@ export default function WorkExperience() {
 
         {/* Call to Action */}
         <div className="text-center mt-16 p-8 bg-white rounded-lg shadow-md">
-          <h3 className="text-2xl font-bold text-slate-900 mb-4">Let's Work Together</h3>
+          <h3 className="text-2xl font-bold text-slate-900 mb-4">Let&apos;s Work Together</h3>
           <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
-            I'm always interested in new opportunities and exciting projects. Feel free to reach out if you'd like to
+            I&apos;m always interested in new opportunities and exciting projects. Feel free to reach out if you&apos;d like to
             discuss how we can collaborate.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
