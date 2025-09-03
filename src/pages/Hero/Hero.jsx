@@ -206,10 +206,10 @@ const profile = {
                 {/* Hire Me Button */}
                 <a
                   href="/#contact"
-                  className="relative inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-black text-white font-medium border-[2px] border-blue-500 hover:border-blue-600/80 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/80 hover:-translate-y-0.5 p-[2px] ">
-                  <span>Hire Me</span>
+                  className="group relative inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-black text-white font-medium border-[2px] border-blue-500 hover:border-blue-400 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-1 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-400/50">
+                  <span className="relative z-10">Hire Me</span>
                   <svg
-                    className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                    className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 relative z-10"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth={2}
@@ -220,15 +220,16 @@ const profile = {
                       d="M17 8l4 4m0 0l-4 4m4-4H3"
                     />
                   </svg>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg"></div>
                 </a>
 
                 {/* Download CV Button */}
                 <a
                   href="#"
-                  className="relative inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-black text-white font-medium border border-white/10 hover:border-blue-600/80 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/80 hover:-translate-y-0.5">
-                  <span>Download CV</span>
+                  className="group relative inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-black text-white font-medium border border-white/20 hover:border-cyan-400/60 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-400/20 hover:-translate-y-1 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400/50">
+                  <span className="relative z-10">Download CV</span>
                   <svg
-                    className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5"
+                    className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5 relative z-10"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth={2}
@@ -249,6 +250,7 @@ const profile = {
                       d="M12 15V3"
                     />
                   </svg>
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-indigo-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg"></div>
                 </a>
               </div>
 

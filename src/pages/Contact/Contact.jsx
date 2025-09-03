@@ -138,9 +138,11 @@ export default function Contact() {
                       <input
                         type={field === "email" ? "email" : "text"}
                         placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
-                        className={`w-full px-4 py-3 rounded-lg bg-[#0f172a] border ${
-                          errors[field] ? "border-red-500" : "border-gray-700"
-                        } focus:border-blue-500 focus:outline-none transition-colors`}
+                        className={`w-full px-4 py-3 rounded-lg bg-[#0f172a] border transition-all duration-300 ${
+                          errors[field] 
+                            ? "border-red-500 focus:border-red-400 focus:shadow-lg focus:shadow-red-500/20" 
+                            : "border-gray-700 focus:border-blue-500 focus:shadow-lg focus:shadow-blue-500/20 hover:border-gray-600"
+                        } focus:outline-none hover:scale-[1.02] focus:scale-[1.02]`}
                         value={formData[field]}
                         onChange={(e) =>
                           setFormData({ ...formData, [field]: e.target.value })
@@ -150,9 +152,11 @@ export default function Contact() {
                       <textarea
                         placeholder="Your Message"
                         rows="4"
-                        className={`w-full px-4 py-3 rounded-lg bg-[#0f172a] border ${
-                          errors.message ? "border-red-500" : "border-gray-700"
-                        } focus:border-blue-500 focus:outline-none transition-colors resize-none`}
+                        className={`w-full px-4 py-3 rounded-lg bg-[#0f172a] border transition-all duration-300 resize-none ${
+                          errors.message 
+                            ? "border-red-500 focus:border-red-400 focus:shadow-lg focus:shadow-red-500/20" 
+                            : "border-gray-700 focus:border-blue-500 focus:shadow-lg focus:shadow-blue-500/20 hover:border-gray-600"
+                        } focus:outline-none hover:scale-[1.02] focus:scale-[1.02]`}
                         value={formData.message}
                         onChange={(e) =>
                           setFormData({ ...formData, message: e.target.value })
@@ -169,23 +173,28 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center space-x-2 hover:opacity-90 transition-opacity"
+                  className="group w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center space-x-2 hover:from-cyan-400 hover:to-blue-500 hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-400/50 relative overflow-hidden"
                 >
-                  <span>Send Message</span>
-                  <Send className="w-4 h-4" />
+                  <span className="relative z-10">Send Message</span>
+                  <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
                 </button>
               </form>
 
               {status && (
-                <div
-                  className={`mt-4 text-center ${
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
+                  className={`mt-4 text-center p-3 rounded-lg border ${
                     status.includes("success")
-                      ? "text-green-400"
-                      : "text-red-400"
+                      ? "text-green-400 bg-green-500/10 border-green-500/30"
+                      : "text-red-400 bg-red-500/10 border-red-500/30"
                   }`}
                 >
-                  <p>{status}</p>
-                </div>
+                  <p className="font-medium">{status}</p>
+                </motion.div>
               )}
             </motion.div>
           </motion.div>

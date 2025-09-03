@@ -53,7 +53,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-gray-900/95 backdrop-blur-md md:bg-transparent md:backdrop-blur-none">
       <div className="md:fixed md:top-4 md:left-1/2 md:transform md:-translate-x-1/2 w-full md:w-auto">
-        <div className="p-[2px] md:rounded-full bg-gradient-to-r from-emerald-400 via-cyan-500 to-indigo-500 animate-gradient-x">
+        <div className="p-[2px] md:rounded-full bg-gradient-to-r from-emerald-400 via-cyan-500 to-indigo-500 animate-gradient-x hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300">
           <nav className="bg-gray-900/90 backdrop-blur-md md:rounded-full px-4 md:px-6 py-2.5">
             {/* Mobile Menu Button */}
             <div className="flex justify-between items-center md:hidden px-2">
@@ -62,9 +62,9 @@ export default function Header() {
               </a>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-white p-2"
+                className="text-white p-2 rounded-lg hover:bg-white/10 transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/30"
               >
-                <FaBars />
+                <FaBars className={`transition-transform duration-300 ${isMenuOpen ? 'rotate-90' : ''}`} />
               </button>
             </div>
 
@@ -80,18 +80,19 @@ export default function Header() {
                       setIsMenuOpen(false);
                     }}
                     className={`px-3 py-2 md:py-1.5 rounded-lg md:rounded-full text-sm font-medium
-                      transition-all duration-300 flex items-center gap-2
-                      hover:bg-white/10 
+                      transition-all duration-300 flex items-center gap-2 relative overflow-hidden group
+                      hover:bg-white/10 hover:scale-105 hover:shadow-lg hover:shadow-white/10
+                      active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/30
                       ${
                         activeLink === id
-                          ? "bg-white/15 text-white"
+                          ? "bg-white/15 text-white shadow-md"
                           : "text-gray-300 hover:text-white"
                       }
                     `}
                   >
                     <Icon
-                      className={`text-base ${
-                        activeLink === id ? "scale-110" : ""
+                      className={`text-base transition-all duration-300 ${
+                        activeLink === id ? "scale-110 text-cyan-400" : "group-hover:scale-110 group-hover:text-cyan-300"
                       }`}
                     />
                     <span className="inline">{text}</span>
@@ -114,8 +115,15 @@ export default function Header() {
           }
         }
         .animate-gradient-x {
-          animation: gradient-x 3s linear infinite;
+          animation: gradient-x 3s ease-in-out infinite;
           background-size: 200% 200%;
+        }
+        @keyframes float-slow {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        .animate-float-slow {
+          animation: float-slow 3s ease-in-out infinite;
         }
       `}</style>
     </header>

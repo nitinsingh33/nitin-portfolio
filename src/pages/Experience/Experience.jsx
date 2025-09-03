@@ -167,27 +167,7 @@ export default function WorkExperience() {
             </Card>
           ))}
         </div>
-
-        {/* Call to Action */}
-        <div className="text-center mt-16 p-8 bg-white rounded-lg shadow-md">
-          <h3 className="text-2xl font-bold text-slate-900 mb-4">Let&apos;s Work Together</h3>
-          <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
-            I&apos;m always interested in new opportunities and exciting projects. Feel free to reach out if you&apos;d like to
-            discuss how we can collaborate.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
-              Get In Touch
-            </a>
-            <a
-              href="/projects"
-              className="inline-flex items-center justify-center px-6 py-3 border border-slate-300 text-slate-700 font-semibold rounded-lg hover:bg-slate-50 transition-colors">
-              View My Work
-            </a>
-          </div>
-        </div>
+        
       </div>
     </div>
   );
