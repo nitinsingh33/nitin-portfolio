@@ -7,6 +7,8 @@ import {
   FaCode,
   FaEnvelope,
   FaBars,
+  FaChartLine,
+  FaBlog,
 } from "react-icons/fa";
 import ThemeToggle from "../../components/ui/ThemeToggle";
 
@@ -20,7 +22,9 @@ export default function Header() {
     { id: "skills", icon: FaCode, text: "Skills" },
     { id: "experience", icon: FaBriefcase, text: "Experience" },
     { id: "education", icon: FaGraduationCap, text: "Education" },
+    { id: "dsa", icon: FaChartLine, text: "DSA" },
     { id: "projects", icon: FaLaptopCode, text: "Projects" },
+    { id: "blog", icon: FaBlog, text: "Blog" },
     { id: "contact", icon: FaEnvelope, text: "Contact" },
   ];
 
