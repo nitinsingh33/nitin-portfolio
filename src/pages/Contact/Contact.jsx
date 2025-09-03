@@ -186,7 +186,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white">Phone</h3>
-                  <p className="text-gray-600 dark:text-gray-400">+91 9876543210</p>
+                  <p className="text-gray-600 dark:text-gray-400">+91 8368297391</p>
                   <p className="text-sm text-purple-600 dark:text-purple-400">Available 9 AM - 6 PM IST</p>
                 </div>
               </motion.div>

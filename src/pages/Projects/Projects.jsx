@@ -67,6 +67,86 @@ export default function Projects() {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { amount: 0.1, margin: "0px 0px -100px 0px" }); // Optimized threshold
 
+  // Function to get project-specific colors based on main technology
+  const getProjectColors = (project) => {
+    const mainTech = project.tags[0]?.toLowerCase() || project.techStack[0]?.toLowerCase() || '';
+    
+    if (mainTech.includes('javascript') || mainTech.includes('js')) {
+      return {
+        primary: 'from-yellow-500 to-orange-500',
+        secondary: 'yellow-500',
+        badge: 'from-yellow-500/90 to-orange-500/90',
+        border: 'yellow-300',
+        hover: 'yellow-600',
+        bg: 'yellow-50 dark:bg-yellow-900/20',
+        text: 'yellow-700 dark:text-yellow-300',
+        borderColors: 'yellow-200 dark:border-yellow-800',
+        hoverBg: 'yellow-100 dark:hover:bg-yellow-900/30'
+      };
+    } else if (mainTech.includes('react') || mainTech.includes('next')) {
+      return {
+        primary: 'from-blue-500 to-cyan-500',
+        secondary: 'blue-500',
+        badge: 'from-blue-500/90 to-cyan-500/90',
+        border: 'blue-300',
+        hover: 'blue-600',
+        bg: 'blue-50 dark:bg-blue-900/20',
+        text: 'blue-700 dark:text-blue-300',
+        borderColors: 'blue-200 dark:border-blue-800',
+        hoverBg: 'blue-100 dark:hover:bg-blue-900/30'
+      };
+    } else if (mainTech.includes('vue') || mainTech.includes('nuxt')) {
+      return {
+        primary: 'from-green-500 to-emerald-500',
+        secondary: 'green-500',
+        badge: 'from-green-500/90 to-emerald-500/90',
+        border: 'green-300',
+        hover: 'green-600',
+        bg: 'green-50 dark:bg-green-900/20',
+        text: 'green-700 dark:text-green-300',
+        borderColors: 'green-200 dark:border-green-800',
+        hoverBg: 'green-100 dark:hover:bg-green-900/30'
+      };
+    } else if (mainTech.includes('python') || mainTech.includes('django') || mainTech.includes('flask')) {
+      return {
+        primary: 'from-purple-500 to-indigo-500',
+        secondary: 'purple-500',
+        badge: 'from-purple-500/90 to-indigo-500/90',
+        border: 'purple-300',
+        hover: 'purple-600',
+        bg: 'purple-50 dark:bg-purple-900/20',
+        text: 'purple-700 dark:text-purple-300',
+        borderColors: 'purple-200 dark:border-purple-800',
+        hoverBg: 'purple-100 dark:hover:bg-purple-900/30'
+      };
+    } else if (mainTech.includes('node') || mainTech.includes('express') || mainTech.includes('backend')) {
+      return {
+        primary: 'from-emerald-500 to-teal-500',
+        secondary: 'emerald-500',
+        badge: 'from-emerald-500/90 to-teal-500/90',
+        border: 'emerald-300',
+        hover: 'emerald-600',
+        bg: 'emerald-50 dark:bg-emerald-900/20',
+        text: 'emerald-700 dark:text-emerald-300',
+        borderColors: 'emerald-200 dark:border-emerald-800',
+        hoverBg: 'emerald-100 dark:hover:bg-emerald-900/30'
+      };
+    } else {
+      // Default fallback
+      return {
+        primary: 'from-slate-500 to-gray-500',
+        secondary: 'slate-500',
+        badge: 'from-slate-500/90 to-gray-500/90',
+        border: 'slate-300',
+        hover: 'slate-600',
+        bg: 'slate-50 dark:bg-slate-900/20',
+        text: 'slate-700 dark:text-slate-300',
+        borderColors: 'slate-200 dark:border-slate-800',
+        hoverBg: 'slate-100 dark:hover:bg-slate-900/30'
+      };
+    }
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -142,6 +222,7 @@ export default function Projects() {
               key={index}
               project={project}
               index={index}
+              colors={getProjectColors(project)}
             />
           ))}
         </motion.div>
@@ -150,7 +231,7 @@ export default function Projects() {
   );
 }
 
-const ProjectCard = ({ project, index }) => {
+const ProjectCard = ({ project, index, colors }) => {
   const cardRef = useRef(null);
   const isInView = useInView(cardRef, { amount: 0.2, margin: "0px 0px -50px 0px" }); // Optimized
 
@@ -191,7 +272,7 @@ const ProjectCard = ({ project, index }) => {
           animate={isInView ? { scale: 1 } : { scale: 0 }}
           transition={{ delay: index * 0.05 + 0.2, duration: 0.3 }} // Simplified animation
         >
-          <div className="flex items-center gap-2 bg-gradient-to-r from-emerald-500/90 to-teal-500/90 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm border border-emerald-300/20">
+          <div className={`flex items-center gap-2 bg-gradient-to-r ${colors.badge} text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm border border-${colors.border}/20`}>
             <Star className="w-4 h-4 fill-current" />
             Featured
           </div>
@@ -261,7 +342,7 @@ const ProjectCard = ({ project, index }) => {
             </div>
             
             <h3 
-              className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-200 leading-tight"
+              className={`text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-${colors.hover} dark:group-hover:text-${colors.secondary} transition-colors duration-200 leading-tight`}
             >
               {project.title}
             </h3>
@@ -272,14 +353,14 @@ const ProjectCard = ({ project, index }) => {
             
             <div className="mb-6">
               <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
-                <Code className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <Code className={`w-4 h-4 text-${colors.hover} dark:text-${colors.secondary}`} />
                 Tech Stack
               </h4>
               <div className="flex flex-wrap gap-2">
                 {project.techStack.map((tech, techIndex) => (
                   <span
                     key={techIndex}
-                    className="px-3 py-1 text-xs font-medium rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-emerald-300 dark:hover:border-emerald-600 transition-colors duration-150"
+                    className={`px-3 py-1 text-xs font-medium rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-${colors.border} dark:hover:border-${colors.hover} transition-colors duration-150`}
                   >
                     {tech}
                   </span>
@@ -289,7 +370,7 @@ const ProjectCard = ({ project, index }) => {
 
             <div className="mb-6">
               <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
-                <Zap className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <Zap className={`w-4 h-4 text-${colors.hover} dark:text-${colors.secondary}`} />
                 Key Features
               </h4>
               <div className="grid grid-cols-2 gap-2">
@@ -301,7 +382,7 @@ const ProjectCard = ({ project, index }) => {
                     animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                     transition={{ delay: index * 0.05 + highlightIndex * 0.02 + 0.3, duration: 0.3 }}
                   >
-                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    <div className={`w-1.5 h-1.5 rounded-full bg-${colors.secondary}`} />
                     {highlight}
                   </motion.div>
                 ))}
@@ -312,7 +393,7 @@ const ProjectCard = ({ project, index }) => {
               {project.tags.map((tag, tagIndex) => (
                 <span
                   key={tagIndex}
-                  className="px-4 py-2 text-sm font-medium rounded-full bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 dark:hover:bg-emerald-900/30 transition-colors duration-150"
+                  className={`px-4 py-2 text-sm font-medium rounded-full bg-${colors.bg} text-${colors.text} border border-${colors.borderColors} hover:bg-${colors.hoverBg} transition-colors duration-150`}
                 >
                   {tag}
                 </span>
@@ -325,7 +406,7 @@ const ProjectCard = ({ project, index }) => {
               href={project.liveLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-3 rounded-xl hover:shadow-lg hover:from-emerald-600 hover:to-teal-600 transition-all duration-200 font-medium flex-1 justify-center"
+              className={`flex items-center gap-3 bg-gradient-to-r ${colors.primary} text-white px-6 py-3 rounded-xl hover:shadow-lg hover:${colors.primary.replace('to-', 'hover:to-')} transition-all duration-200 font-medium flex-1 justify-center`}
               whileHover={{ scale: 1.01, y: -1 }}
               whileTap={{ scale: 0.99 }}
             >
@@ -337,7 +418,7 @@ const ProjectCard = ({ project, index }) => {
               href={project.githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-150 px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-emerald-300 dark:hover:border-emerald-600 font-medium flex-1 justify-center"
+              className={`flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-150 px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-${colors.border} dark:hover:border-${colors.hover} font-medium flex-1 justify-center`}
               whileHover={{ scale: 1.01, y: -1 }}
               whileTap={{ scale: 0.99 }}
             >
@@ -354,4 +435,5 @@ const ProjectCard = ({ project, index }) => {
 ProjectCard.propTypes = {
   project: PropTypes.object.isRequired,
   index: PropTypes.number.isRequired,
+  colors: PropTypes.object.isRequired,
 };

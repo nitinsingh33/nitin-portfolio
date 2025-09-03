@@ -14,6 +14,7 @@ import Skills from "./pages/Skills/Skills";
 import Education from "./pages/Education/Education";
 import DSA from "./pages/DSA/DSA";
 import Blog from "./pages/Blog/Blog";
+import Footer from "./components/Footer";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -52,6 +53,7 @@ export default function App() {
             <section id="contact">
               <Contact />
             </section>
+            <Footer />
           </>
         ) : (
           // ❌ Multi-page mode (disabled currently)
