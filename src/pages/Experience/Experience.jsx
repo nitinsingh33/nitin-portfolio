@@ -37,9 +37,9 @@ export default function WorkExperience() {
       type: "Full-time",
       icon: "💻",
       colorTheme: {
-        border: "border-blue-500/30 hover:border-blue-400",
-        accent: "text-blue-400",
-        badge: "bg-blue-500/10 text-blue-400 border-blue-400/30"
+        border: "border-teal-200/50 hover:border-teal-300/70 dark:border-teal-800/50 dark:hover:border-teal-600/70",
+        accent: "text-teal-600 dark:text-teal-400",
+        badge: "bg-teal-50 text-teal-700 border-teal-200 dark:bg-teal-900/20 dark:text-teal-300 dark:border-teal-800"
       },
       description:
         "Led the development of responsive web applications using React and Next.js. Collaborated with cross-functional teams to deliver high-quality user experiences and improved application performance by 40%.",
@@ -60,9 +60,9 @@ export default function WorkExperience() {
       type: "Full-time",
       icon: "🚀",
       colorTheme: {
-        border: "border-purple-500/30 hover:border-purple-400",
-        accent: "text-purple-400",
-        badge: "bg-purple-500/10 text-purple-400 border-purple-400/30"
+        border: "border-blue-200/50 hover:border-blue-300/70 dark:border-blue-800/50 dark:hover:border-blue-600/70",
+        accent: "text-blue-600 dark:text-blue-400",
+        badge: "bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800"
       },
       description:
         "Built and maintained full-stack applications from concept to deployment. Worked directly with founders to translate business requirements into technical solutions.",
@@ -83,9 +83,9 @@ export default function WorkExperience() {
       type: "Full-time",
       icon: "🎨",
       colorTheme: {
-        border: "border-emerald-500/30 hover:border-emerald-400",
-        accent: "text-emerald-400",
-        badge: "bg-emerald-500/10 text-emerald-400 border-emerald-400/30"
+        border: "border-emerald-200/50 hover:border-emerald-300/70 dark:border-emerald-800/50 dark:hover:border-emerald-600/70",
+        accent: "text-emerald-600 dark:text-emerald-400",
+        badge: "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-900/20 dark:text-emerald-300 dark:border-emerald-800"
       },
       description:
         "Developed custom websites and web applications for clients across various industries. Focused on creating pixel-perfect, responsive designs with optimal performance.",
@@ -106,9 +106,9 @@ export default function WorkExperience() {
       type: "Contract",
       icon: "⚡",
       colorTheme: {
-        border: "border-orange-500/30 hover:border-orange-400",
-        accent: "text-orange-400",
-        badge: "bg-orange-500/10 text-orange-400 border-orange-400/30"
+        border: "border-orange-200/50 hover:border-orange-300/70 dark:border-orange-800/50 dark:hover:border-orange-600/70",
+        accent: "text-orange-600 dark:text-orange-400",
+        badge: "bg-orange-50 text-orange-700 border-orange-200 dark:bg-orange-900/20 dark:text-orange-300 dark:border-orange-800"
       },
       description:
         "Provided web development services to small businesses and startups. Specialized in creating modern, responsive websites that drive business growth.",
