@@ -1,76 +1,202 @@
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import HeroImg from "@/assets/images/picme.jpg";
-import OlovaLogo from "@/assets/images/olova.png";
 import GridBackground from "@/components/GridBackground";
+import { Lightbulb, Zap, Coffee, Heart } from "lucide-react";
 
 export default function About() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 60, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const floatingVariants = {
+    animate: {
+      y: [-10, 10, -10],
+      transition: {
+        duration: 6,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
     <>
-      <section id="about" className="py-16 md:py-32 text-gray-900 dark:text-white bg-gray-50 dark:bg-[#04081A] transition-colors duration-300 relative">
+      <section 
+        id="about" 
+        className="py-16 md:py-32 text-gray-900 dark:text-white bg-gray-50 dark:bg-[#020617] transition-colors duration-300 relative overflow-hidden"
+      >
         <GridBackground />
-        <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16 relative z-10">
-          <h2 className="relative z-10 max-w-xl text-4xl font-medium lg:text-5xl text-gray-900 dark:text-white">
-            Developer, Designer, Creator, Innovator
-          </h2>
-          <div className="grid gap-6 sm:grid-cols-2 md:gap-12 lg:gap-24">
-            <div className="relative mb-6 sm:mb-0">
-              <div className="bg-gradient-to-b aspect-76/59 relative rounded-2xl p-px from-gray-300 dark:from-zinc-300 to-transparent">
-                <img
-                  src={HeroImg}
-                  className="rounded-[15px] shadow block"
-                  alt="payments illustration"
-                  width={1207}
-                  height={929}
-                />
+        
+        {/* Floating background elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <motion.div
+            className="absolute top-20 left-20 w-64 h-64 bg-blue-500/10 dark:bg-blue-500/10 rounded-full blur-3xl"
+            variants={floatingVariants}
+            animate="animate"
+          />
+          <motion.div
+            className="absolute bottom-40 right-20 w-80 h-80 bg-emerald-500/10 dark:bg-emerald-500/10 rounded-full blur-3xl"
+            variants={floatingVariants}
+            animate="animate"
+            style={{ animationDelay: "2s" }}
+          />
+          <motion.div
+            className="absolute top-1/2 left-1/3 w-48 h-48 bg-purple-500/10 dark:bg-purple-500/10 rounded-full blur-3xl"
+            variants={floatingVariants}
+            animate="animate"
+            style={{ animationDelay: "4s" }}
+          />
+        </div>
+
+        <motion.div 
+          className="mx-auto max-w-6xl space-y-8 px-6 md:space-y-16 relative z-10"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isVisible ? "visible" : "hidden"}
+        >
+          {/* Enhanced Title Section */}
+          <motion.div variants={itemVariants} className="text-center mb-16">
+            <motion.div
+              className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-emerald-500/10 border border-blue-500/20 mb-6 backdrop-blur-sm"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Zap className="w-5 h-5 text-blue-500 dark:text-blue-400" />
+              <span className="text-blue-500 dark:text-blue-400 font-medium">About Me</span>
+            </motion.div>
+            
+            <h2 className="relative z-10 max-w-4xl mx-auto text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 dark:text-white mb-6">
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
+                Thinker, Coder,
+              </span>
+              <br />
+              <span className="text-gray-900 dark:text-white">Builder & Doer</span>
+            </h2>
+            
+            <motion.div 
+              className="w-24 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto rounded-full"
+              initial={{ width: 0 }}
+              animate={{ width: 96 }}
+              transition={{ duration: 1, delay: 0.5 }}
+            />
+          </motion.div>
+
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 items-start">
+            {/* Enhanced Image Section */}
+            <motion.div variants={itemVariants} className="relative lg:sticky lg:top-8">
+              <div className="relative group">
+                {/* Gradient border with hover effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-emerald-500 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+                
+                <div className="relative bg-gradient-to-b aspect-[4/5] rounded-3xl p-1 from-blue-500/20 via-purple-500/20 to-emerald-500/20 backdrop-blur-sm">
+                  <img
+                    src={HeroImg}
+                    className="rounded-[22px] shadow-2xl block w-full h-full object-cover object-top"
+                    alt="Nitin Singh - Developer"
+                    width={600}
+                    height={750}
+                  />
+                </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="relative space-y-4">
-              <p className="text-gray-700 dark:text-white">
-                Hello! I'm Nitin Singh, a passionate Frontend developer
-                specializing in creating innovative web solutions and
-                user-friendly interfaces.{" "}
-                <span className="font-bold text-gray-900 dark:text-white">
-                  As the creator of the OlovaJS UI Framework
-                </span>
-                , I'm dedicated to simplifying development workflows.
-              </p>
-              <p className="text-gray-700 dark:text-white">
-                My focus is on making web development faster, easier, and
-                accessible to all developers. Currently, I'm expanding into
-                backend development to grow as a full-stack developer and create
-                seamless, robust web applications.
-              </p>
+            {/* Enhanced Content Section */}
+            <motion.div variants={itemVariants} className="relative space-y-8 lg:pt-4">
+              {/* Introduction */}
+              <div className="space-y-6">
+                <motion.p 
+                  className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                >
+                  Hello! I&apos;m <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-600">Nitin Singh</span>, a passionate Full-Stack developer specializing in creating innovative web solutions and user-friendly interfaces. 
+                  <motion.span 
+                    className="inline-flex items-center ml-2"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <Coffee className="w-5 h-5 text-amber-500" />
+                  </motion.span>
+                </motion.p>
+                
+                <motion.p 
+                  className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                >
+                  My focus is on creating efficient, scalable solutions and staying updated with the latest technologies. I&apos;m dedicated to writing clean code and building applications that provide exceptional user experiences.
+                </motion.p>
 
-              <div className="pt-6">
-                <blockquote className="border-l-4 border-gray-400 dark:border-gray-300 pl-4">
-                  <p className="text-gray-700 dark:text-white">
-                    I'm a lifelong learner and innovator, driven by a desire to
-                    contribute to the developer community with new ideas and
-                    tools that deliver real value. As the creator of OlovaJS,
-                    I'm pushing the boundaries of JavaScript frameworks to
-                    empower developers worldwide.
+                <motion.p 
+                  className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                >
+                  Currently expanding into backend development to grow as a full-stack developer and create seamless, robust web applications that make a difference.
+                </motion.p>
+              </div>
+
+              {/* Enhanced Quote Section */}
+              <motion.div 
+                className="relative p-8 rounded-2xl bg-gradient-to-br from-gray-100/50 to-gray-200/50 dark:from-gray-800/50 dark:to-gray-900/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="absolute top-4 left-4">
+                  <Lightbulb className="w-6 h-6 text-yellow-500" />
+                </div>
+                
+                <blockquote className="border-l-4 border-gradient-to-b from-blue-500 to-emerald-500 pl-6 mt-4">
+                  <p className="text-gray-700 dark:text-gray-200 text-lg italic leading-relaxed">
+                    &ldquo;I&apos;m a lifelong learner and problem solver, driven by a passion for building innovative solutions that make a real impact. My goal is to contribute meaningful value to the developer community and create applications that enhance people&apos;s lives.&rdquo;
                   </p>
 
-                  <div className="mt-6 space-y-3">
-                    <cite className="block font-medium text-gray-900 dark:text-white">
-                      Nazmul Hossain, Creator of
+                  <div className="mt-8 space-y-4">
+                    <cite className="block font-semibold text-gray-900 dark:text-white text-lg">
+                      Nitin Singh
                     </cite>
-                    <div className="flex items-center gap-2">
-                      <img
-                        className="h-5 w-fit"
-                        src={OlovaLogo}
-                        alt="Olova Logo"
-                        height="20"
-                        width="auto"
-                      />
-                      <span className="text-gray-900 dark:text-white">OlovaJS</span>
-                    </div>
+                    <motion.div 
+                      className="flex items-center gap-3 p-3 rounded-xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 w-fit"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <Zap className="w-6 h-6 text-blue-500 dark:text-blue-400" />
+                      <span className="text-gray-900 dark:text-white font-medium">Full-Stack Developer</span>
+                      <Heart className="w-5 h-5 text-red-500" />
+                    </motion.div>
                   </div>
                 </blockquote>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
     </>
   );

@@ -93,22 +93,6 @@ export default function Projects() {
     },
   };
 
-  const subtitleVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 15 // Reduced from 20
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.3, // Reduced from 0.5
-        delay: 0.1, // Reduced from 0.2
-        ease: "easeOut",
-      },
-    },
-  };
-
   return (
     <section className="min-h-screen relative overflow-hidden py-20 bg-gray-50 dark:bg-[#04081A] transition-colors duration-300">
       <GridBackground />
@@ -119,24 +103,31 @@ export default function Projects() {
           animate={isInView ? "visible" : "hidden"}
           className="text-center mb-20"
         >
-          <motion.h1 
+          <motion.div
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-emerald-500/10 border border-blue-500/20 mb-6 backdrop-blur-sm"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span className="text-2xl">🚀</span>
+            <span className="text-blue-500 dark:text-blue-400 font-medium">Portfolio Showcase</span>
+          </motion.div>
+          
+          <motion.h2 
             variants={titleVariants}
-            className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-emerald-600 dark:from-emerald-400 to-teal-600 dark:to-teal-500 bg-clip-text text-transparent mb-6"
+            className="relative z-10 max-w-4xl mx-auto text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 dark:text-white mb-6"
           >
-            Featured Projects
-          </motion.h1>
-          <motion.p 
-            variants={subtitleVariants}
-            className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
-          >
-            Discover my latest work - innovative solutions that blend cutting-edge technology with exceptional user experience
-          </motion.p>
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
+              Featured
+            </span>
+            <br />
+            <span className="text-gray-900 dark:text-white">Projects</span>
+          </motion.h2>
           
           <motion.div
-            initial={{ scaleX: 0 }}
-            animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="w-24 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto mt-8 rounded-full"
+            initial={{ width: 0 }}
+            animate={isInView ? { width: 96 } : { width: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto rounded-full"
           />
         </motion.div>
 

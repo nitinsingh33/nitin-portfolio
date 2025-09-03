@@ -111,12 +111,29 @@ const EducationSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-emerald-600 dark:from-emerald-400 to-teal-600 dark:to-teal-500 bg-clip-text text-transparent mb-6">
-            Education & Certifications
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Academic foundation and professional certifications driving my technical growth
-          </p>
+          <motion.div
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-emerald-500/10 border border-blue-500/20 mb-6 backdrop-blur-sm"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <BookOpen className="w-5 h-5 text-blue-500 dark:text-blue-400" />
+            <span className="text-blue-500 dark:text-blue-400 font-medium">Academic Journey</span>
+          </motion.div>
+          
+          <h2 className="relative z-10 max-w-4xl mx-auto text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 dark:text-white mb-6">
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
+              Education
+            </span>
+            <br />
+            <span className="text-gray-900 dark:text-white">& Certifications</span>
+          </h2>
+          
+          <motion.div 
+            className="w-24 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto rounded-full"
+            initial={{ width: 0 }}
+            animate={{ width: 96 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          />
         </motion.div>
 
         {/* Education Section */}
@@ -283,37 +300,6 @@ const EducationSection = () => {
             ))}
           </motion.div>
         </div>
-
-        {/* Certification Goals */}
-        <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-        >
-          <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-2xl p-8 border border-gray-200/50 dark:border-gray-700/50">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              Certification Roadmap 2025-2026
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
-              Building expertise in cloud technologies and modern development practices through industry-recognized certifications
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4">
-                <div className="font-semibold text-blue-700 dark:text-blue-300">Q4 2025</div>
-                <div className="text-blue-600 dark:text-blue-400">AWS Developer + JavaScript</div>
-              </div>
-              <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4">
-                <div className="font-semibold text-purple-700 dark:text-purple-300">Q1 2026</div>
-                <div className="text-purple-600 dark:text-purple-400">Azure + React Certification</div>
-              </div>
-              <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-4">
-                <div className="font-semibold text-green-700 dark:text-green-300">Q2 2026</div>
-                <div className="text-green-600 dark:text-green-400">Advanced Cloud Architecture</div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

@@ -1,8 +1,9 @@
-import React from "react";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import IconCloudDemo from "@/components/globe";
-import { Code2, Paintbrush, Database, Layout, Cpu, Cloud } from "lucide-react";
+import { Code2, Paintbrush, Database, Layout, Cpu, Cloud, Zap, Globe } from "lucide-react";
 import GridBackground from "@/components/GridBackground";
 import {
   FaReact,
@@ -33,37 +34,91 @@ import { BsFileEarmarkCode, BsGrid1X2 } from "react-icons/bs";
 import { MdAnimation } from "react-icons/md";
 import { FcWorkflow } from "react-icons/fc";
 
-const SkillCard = ({ icon: Icon, title, skills, color }) => (
-  <Card className="group relative overflow-hidden bg-white/90 dark:bg-gray-900/80 border-gray-200 dark:border-gray-700 hover:scale-[1.02] transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20">
-    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(100,100,255,0.1)] to-transparent group-hover:via-[rgba(100,100,255,0.2)] animate-shimmer"></div>
-    <CardContent className="p-6 relative z-10">
-      <div className="flex items-center gap-4 mb-6">
-        <div
-          className={`p-3 rounded-xl bg-gray-100/80 dark:bg-gray-800/50 ${color} group-hover:scale-110 transition-transform duration-300`}>
-          <Icon className="w-8 h-8" />
+const SkillCard = ({ icon: Icon, title, skills, color, index }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 60 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
+  >
+    <Card className="group relative overflow-hidden bg-white/90 dark:bg-gray-900/80 border-gray-200 dark:border-gray-700 hover:scale-[1.02] transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20">
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(100,100,255,0.1)] to-transparent group-hover:via-[rgba(100,100,255,0.2)] animate-shimmer"></div>
+      <CardContent className="p-6 relative z-10">
+        <div className="flex items-center gap-4 mb-6">
+          <motion.div
+            className={`p-3 rounded-xl bg-gray-100/80 dark:bg-gray-800/50 ${color} group-hover:scale-110 transition-transform duration-300`}
+            whileHover={{ rotate: 360 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Icon className="w-8 h-8" />
+          </motion.div>
+          <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 dark:from-white to-gray-600 dark:to-gray-400">
+            {title}
+          </h3>
         </div>
-        <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 dark:from-white to-gray-600 dark:to-gray-400">
-          {title}
-        </h3>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        {skills.map((skill, index) => (
-          <Badge
-            key={index}
-            variant="outline"
-            className="group/badge relative bg-gray-100/80 dark:bg-gray-800/50 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600 flex items-center gap-2 py-2 px-3 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 hover:border-blue-400/50 cursor-pointer">
-            <span className="transform group-hover/badge:scale-110 transition-transform duration-300">
-              {skill.icon}
-            </span>
-            <span className="font-medium">{skill.name}</span>
-          </Badge>
-        ))}
-      </div>
-    </CardContent>
-  </Card>
+        <div className="flex flex-wrap gap-2">
+          {skills.map((skill, skillIndex) => (
+            <motion.div
+              key={skillIndex}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: (index * 0.1) + (skillIndex * 0.05) }}
+            >
+              <Badge
+                variant="outline"
+                className="group/badge relative bg-gray-100/80 dark:bg-gray-800/50 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600 flex items-center gap-2 py-2 px-3 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 hover:border-blue-400/50 cursor-pointer">
+                <span className="transform group-hover/badge:scale-110 transition-transform duration-300">
+                  {skill.icon}
+                </span>
+                <span className="font-medium">{skill.name}</span>
+              </Badge>
+            </motion.div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  </motion.div>
 );
 
 const SkillsSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 60, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const floatingVariants = {
+    animate: {
+      y: [-15, 15, -15],
+      transition: {
+        duration: 8,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  };
   const skillCategories = [
     {
       icon: Code2,
@@ -212,18 +267,94 @@ const SkillsSection = () => {
   ];
 
   return (
-    <main className="pt-15 lg:pt-0 text-gray-900 dark:text-white min-h-screen bg-gray-50 dark:bg-[#04081A] relative transition-colors duration-300">
+    <main className="pt-15 lg:pt-0 text-gray-900 dark:text-white min-h-screen bg-gray-50 dark:bg-[#020617] relative transition-colors duration-300 overflow-hidden">
       <GridBackground />
 
-      <section className="container mx-auto px-4 py-11 relative z-10">
-        <h2 className="text-5xl md:text-6xl font-extrabold text-center bg-gradient-to-r from-teal-600 dark:from-teal-400 to-blue-600 dark:to-blue-500 bg-clip-text text-transparent mb-12 tracking-tight drop-shadow-md">
-          Tech Stack & Skills
-        </h2>
+      {/* Floating background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-32 left-20 w-72 h-72 bg-blue-500/10 dark:bg-blue-500/10 rounded-full blur-3xl"
+          variants={floatingVariants}
+          animate="animate"
+        />
+        <motion.div
+          className="absolute bottom-40 right-20 w-96 h-96 bg-emerald-500/10 dark:bg-emerald-500/10 rounded-full blur-3xl"
+          variants={floatingVariants}
+          animate="animate"
+          style={{ animationDelay: "3s" }}
+        />
+        <motion.div
+          className="absolute top-1/2 left-1/4 w-64 h-64 bg-purple-500/10 dark:bg-purple-500/10 rounded-full blur-3xl"
+          variants={floatingVariants}
+          animate="animate"
+          style={{ animationDelay: "6s" }}
+        />
+      </div>
 
-        <div className="flex justify-center items-center ">
-          <IconCloudDemo />
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="container mx-auto px-4 py-16 md:py-24 relative z-10">
+        {/* Enhanced Title Section */}
+        <motion.div 
+          className="text-center mb-20"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isVisible ? "visible" : "hidden"}
+        >
+          <motion.div
+            variants={itemVariants}
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-emerald-500/10 border border-blue-500/20 mb-8 backdrop-blur-sm"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Zap className="w-5 h-5 text-blue-500 dark:text-blue-400" />
+            <span className="text-blue-500 dark:text-blue-400 font-medium">Technical Arsenal</span>
+          </motion.div>
+
+          <motion.h2 
+            variants={itemVariants}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 dark:text-white mb-6"
+          >
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
+              Tech Stack & Skills
+            </span>
+          </motion.h2>
+
+          <motion.div 
+            variants={itemVariants}
+            className="w-24 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto rounded-full mb-12"
+            initial={{ width: 0 }}
+            animate={{ width: 96 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          />
+        </motion.div>
+
+        {/* Enhanced Globe Section */}
+        <motion.div 
+          className="flex flex-col items-center mb-20"
+          variants={itemVariants}
+          initial="hidden"
+          animate={isVisible ? "visible" : "hidden"}
+        >
+          <motion.div 
+            className="relative p-8 rounded-3xl bg-gradient-to-br from-gray-100/50 to-gray-200/50 dark:from-gray-800/50 dark:to-gray-900/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 mb-6"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="absolute top-4 left-4">
+              <Globe className="w-6 h-6 text-blue-500 dark:text-blue-400" />
+            </div>
+            <div className="pt-4">
+              <IconCloudDemo />
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Enhanced Skills Grid */}
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isVisible ? "visible" : "hidden"}
+        >
           {skillCategories.map((category, index) => (
             <SkillCard
               key={index}
@@ -231,11 +362,14 @@ const SkillsSection = () => {
               title={category.title}
               skills={category.skills}
               color={category.color}
+              index={index}
             />
           ))}
-        </div>
+        </motion.div>
       </section>
-      <style jsx>{`
+
+      {/* Enhanced Styles */}
+      <style>{`
         @keyframes shimmer {
           0% {
             transform: translateX(-100%);
@@ -246,19 +380,6 @@ const SkillsSection = () => {
         }
         .animate-shimmer {
           animation: shimmer 2s infinite;
-        }
-        .bg-grid-pattern {
-          background-image: linear-gradient(
-              to right,
-              rgba(100, 100, 255, 0.1) 1px,
-              transparent 1px
-            ),
-            linear-gradient(
-              to bottom,
-              rgba(100, 100, 255, 0.1) 1px,
-              transparent 1px
-            );
-          background-size: 30px 30px;
         }
       `}</style>
     </main>

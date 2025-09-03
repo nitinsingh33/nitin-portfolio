@@ -133,11 +133,29 @@ export default function WorkExperience() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-600 dark:from-teal-400 to-blue-600 dark:to-blue-500 bg-clip-text text-transparent mb-6">Work Experience</h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            A journey through my professional career, showcasing the roles, technologies, and achievements that have
-            shaped my expertise in web development.
-          </p>
+          <motion.div
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-emerald-500/10 border border-blue-500/20 mb-6 backdrop-blur-sm"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Building2 className="w-5 h-5 text-blue-500 dark:text-blue-400" />
+            <span className="text-blue-500 dark:text-blue-400 font-medium">Professional Journey</span>
+          </motion.div>
+          
+          <h2 className="relative z-10 max-w-4xl mx-auto text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 dark:text-white mb-6">
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
+              Work Experience
+            </span>
+            <br />
+            <span className="text-gray-900 dark:text-white">& Achievements</span>
+          </h2>
+          
+          <motion.div 
+            className="w-24 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto rounded-full"
+            initial={{ width: 0 }}
+            animate={{ width: 96 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          />
         </motion.div>
 
         {/* Experience Timeline */}

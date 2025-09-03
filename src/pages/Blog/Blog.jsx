@@ -56,12 +56,29 @@ const Blog = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 dark:from-purple-400 to-pink-600 dark:to-pink-500 bg-clip-text text-transparent mb-6">
-            Technical Writing Journey
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Starting my journey in technical writing to share knowledge and contribute to the developer community
-          </p>
+          <motion.div
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-emerald-500/10 border border-blue-500/20 mb-6 backdrop-blur-sm"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span className="text-2xl">✍️</span>
+            <span className="text-blue-500 dark:text-blue-400 font-medium">Content Creation</span>
+          </motion.div>
+          
+          <h2 className="relative z-10 max-w-4xl mx-auto text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 dark:text-white mb-6">
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
+              Technical Writing
+            </span>
+            <br />
+            <span className="text-gray-900 dark:text-white">Journey</span>
+          </h2>
+          
+          <motion.div 
+            className="w-24 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto rounded-full"
+            initial={{ width: 0 }}
+            animate={{ width: 96 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          />
         </motion.div>
 
         {/* Writing Goals */}
