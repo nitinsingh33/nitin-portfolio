@@ -6,36 +6,7 @@ import Meteors from "@/components/ui/meteors";
 import PortfolioPage from "@/pages/About/About";
 import { FlipWords } from "@/components/ui/flip-words";
 import { useTheme } from "@/contexts/ThemeContext";
-
-const GridBackground = () => {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
-      <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,transparent_0%,black)]">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="100%"
-          height="100%"
-          className="absolute inset-0">
-          <pattern
-            id="grid"
-            width="40"
-            height="40"
-            patternUnits="userSpaceOnUse">
-            <rect
-              width="40"
-              height="40"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="0.5"
-              className="opacity-40 animate-gridPulse text-gray-600 dark:text-white"
-            />
-          </pattern>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </div>
-    </div>
-  );
-};
+import GridBackground from "@/components/GridBackground";
 
 export default function Hero() {
   const { theme } = useTheme();

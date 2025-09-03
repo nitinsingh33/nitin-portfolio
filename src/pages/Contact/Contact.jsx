@@ -1,6 +1,7 @@
 import  { useState } from "react";
 import { Send, MapPin, Mail, Phone, Clock, Github, Linkedin, X } from "lucide-react";
 import { motion } from "framer-motion";
+import GridBackground from "@/components/GridBackground";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -79,11 +80,7 @@ export default function Contact() {
 
   return (
     <section className="min-h-screen relative overflow-hidden py-20 bg-gray-50 dark:bg-[#04081A] transition-colors duration-300">
-      {/* Grid Background */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-grid-gray-300/[0.3] dark:bg-grid-white/[0.05] bg-[length:50px_50px]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-50 via-transparent to-gray-50 dark:from-[#04081A] dark:via-transparent dark:to-[#04081A]" />
-      </div>
+      <GridBackground />
       
       {/* Gradient Blur Effects */}
       <div className="absolute inset-0 blur-[80px] bg-gradient-to-tr from-blue-100/30 via-sky-100/20 to-cyan-100/10 dark:from-blue-900/30 dark:via-sky-700/20 dark:to-cyan-700/10 z-0" />

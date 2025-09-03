@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import IconCloudDemo from "@/components/globe";
 import { Code2, Paintbrush, Database, Layout, Cpu, Cloud } from "lucide-react";
+import GridBackground from "@/components/GridBackground";
 import {
   FaReact,
   FaNodeJs,
@@ -212,8 +213,7 @@ const SkillsSection = () => {
 
   return (
     <main className="pt-15 lg:pt-0 text-gray-900 dark:text-white min-h-screen bg-gray-50 dark:bg-[#04081A] relative transition-colors duration-300">
-      {/* Grid Background */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
+      <GridBackground />
 
       <section className="container mx-auto px-4 py-11 relative z-10">
         <h2 className="text-5xl md:text-6xl font-extrabold text-center bg-gradient-to-r from-teal-600 dark:from-teal-400 to-blue-600 dark:to-blue-500 bg-clip-text text-transparent mb-12 tracking-tight drop-shadow-md">

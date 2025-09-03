@@ -14,6 +14,7 @@ export default {
       animation: {
         fadeInUp: 'fadeInUp 1s ease-out forwards',
         meteor: 'meteor 5s linear infinite',
+        gridPulse: 'gridPulse 2s ease-in-out infinite',
       },
       keyframes: {
         fadeInUp: {

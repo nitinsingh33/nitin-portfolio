@@ -6,6 +6,7 @@ import {
   Trophy,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import GridBackground from "@/components/GridBackground";
 
 const EducationSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -57,12 +58,7 @@ const EducationSection = () => {
 
   return (
     <section className="min-h-screen relative overflow-hidden py-40 bg-gray-50 dark:bg-[#04081A] transition-colors duration-300">
-      {/* Grid Background */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-grid-gray-300/[0.3] dark:bg-grid-white/[0.05] bg-[length:50px_50px]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-50 via-transparent to-gray-50 dark:from-[#04081A] dark:via-transparent dark:to-[#04081A]" />
-        <div className="absolute inset-0 border border-gray-300/[0.1] dark:border-white/[0.05] grid grid-cols-2 md:grid-cols-4" />
-      </div>
+      <GridBackground />
 
       <div className="max-w-6xl mx-auto px-4 relative z-10">
         <motion.div

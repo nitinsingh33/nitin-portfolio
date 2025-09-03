@@ -2,6 +2,7 @@ import { ReactLenis } from "lenis/react";
 import { useTransform, motion, useScroll } from "framer-motion";
 import { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
+import GridBackground from "@/components/GridBackground";
 
 const projects = [
   {
@@ -99,8 +100,9 @@ export default function Projects() {
 
   return (
     <ReactLenis root>
-      <main className="bg-gray-50 dark:bg-black transition-colors duration-300" ref={container}>
-        <section className="text-gray-900 dark:text-white w-full bg-gray-100 dark:bg-slate-950 transition-colors duration-300">
+      <main className="bg-gray-50 dark:bg-black transition-colors duration-300 relative" ref={container}>
+        <GridBackground />
+        <section className="text-gray-900 dark:text-white w-full bg-gray-100 dark:bg-slate-950 transition-colors duration-300 relative z-10">
           {projects.map((project, i) => {
             const targetScale = 1 - (projects.length - i) * 0.05;
             return (

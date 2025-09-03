@@ -1,11 +1,13 @@
 import HeroImg from "@/assets/images/picme.jpg";
 import OlovaLogo from "@/assets/images/olova.png";
+import GridBackground from "@/components/GridBackground";
 
 export default function About() {
   return (
     <>
-      <section id="about" className="py-16 md:py-32 text-gray-900 dark:text-white bg-gray-50 dark:bg-[#04081A] transition-colors duration-300">
-        <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16">
+      <section id="about" className="py-16 md:py-32 text-gray-900 dark:text-white bg-gray-50 dark:bg-[#04081A] transition-colors duration-300 relative">
+        <GridBackground />
+        <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16 relative z-10">
           <h2 className="relative z-10 max-w-xl text-4xl font-medium lg:text-5xl text-gray-900 dark:text-white">
             Developer, Designer, Creator, Innovator
           </h2>
