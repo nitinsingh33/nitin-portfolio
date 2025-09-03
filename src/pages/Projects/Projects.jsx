@@ -51,15 +51,15 @@ const projects = [
 
 export default function Projects() {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { amount: 0.2 });
+  const isInView = useInView(containerRef, { amount: 0.1, margin: "0px 0px -100px 0px" }); // Optimized threshold
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
+        staggerChildren: 0.08, // Reduced from 0.15
+        delayChildren: 0.05, // Reduced from 0.1
       },
     },
   };
@@ -67,16 +67,14 @@ export default function Projects() {
   const titleVariants = {
     hidden: { 
       opacity: 0, 
-      y: -30,
-      scale: 0.95
+      y: -20, // Reduced from -30
     },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
       transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        duration: 0.4, // Reduced from 0.6
+        ease: "easeOut", // Simpler easing
       },
     },
   };
@@ -84,14 +82,14 @@ export default function Projects() {
   const subtitleVariants = {
     hidden: { 
       opacity: 0, 
-      y: 20
+      y: 15 // Reduced from 20
     },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
-        delay: 0.2,
+        duration: 0.3, // Reduced from 0.5
+        delay: 0.1, // Reduced from 0.2
         ease: "easeOut",
       },
     },
@@ -123,7 +121,7 @@ export default function Projects() {
           <motion.div
             initial={{ scaleX: 0 }}
             animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.4, delay: 0.2 }} // Reduced duration and delay
             className="w-24 h-1 bg-gradient-to-r from-teal-500 to-blue-500 mx-auto mt-8 rounded-full"
           />
         </motion.div>
@@ -149,22 +147,20 @@ export default function Projects() {
 
 const ProjectCard = ({ project, index }) => {
   const cardRef = useRef(null);
-  const isInView = useInView(cardRef, { amount: 0.3 });
+  const isInView = useInView(cardRef, { amount: 0.2, margin: "0px 0px -50px 0px" }); // Optimized
 
   const cardVariants = {
     hidden: { 
       opacity: 0, 
-      y: 60,
-      scale: 0.95,
+      y: 30, // Reduced from 60
     },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
       transition: {
-        duration: 0.6,
-        delay: index * 0.1,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        duration: 0.4, // Reduced from 0.6
+        delay: index * 0.05, // Reduced from 0.1
+        ease: "easeOut", // Simpler easing
       },
     },
   };
@@ -175,20 +171,20 @@ const ProjectCard = ({ project, index }) => {
       variants={cardVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className={`group relative overflow-hidden rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50 hover:border-teal-300/50 dark:hover:border-teal-600/50 transition-all duration-300 shadow-sm hover:shadow-lg ${
+      className={`group relative overflow-hidden rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50 hover:border-teal-300/50 dark:hover:border-teal-600/50 transition-all duration-200 shadow-sm hover:shadow-lg ${
         project.featured ? 'col-span-full' : ''
       }`}
       whileHover={{ 
-        y: -8,
-        transition: { type: "spring", stiffness: 300, damping: 25 }
+        y: -4, // Reduced from -8
+        transition: { duration: 0.2 } // Faster transition
       }}
     >
       {project.featured && (
         <motion.div 
           className="absolute top-6 left-6 z-30"
-          initial={{ scale: 0, rotate: -180 }}
-          animate={isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
-          transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 200 }}
+          initial={{ scale: 0 }}
+          animate={isInView ? { scale: 1 } : { scale: 0 }}
+          transition={{ delay: index * 0.05 + 0.2, duration: 0.3 }} // Simplified animation
         >
           <div className="flex items-center gap-2 bg-gradient-to-r from-teal-500/90 to-blue-500/90 text-white px-4 py-2 rounded-full text-sm font-medium shadow-sm backdrop-blur-sm">
             <Star className="w-4 h-4 fill-current" />
@@ -199,9 +195,9 @@ const ProjectCard = ({ project, index }) => {
 
       <motion.div 
         className="absolute top-6 right-6 z-30"
-        initial={{ scale: 0, x: 50 }}
-        animate={isInView ? { scale: 1, x: 0 } : { scale: 0, x: 50 }}
-        transition={{ delay: index * 0.1 + 0.5 }}
+        initial={{ scale: 0 }}
+        animate={isInView ? { scale: 1 } : { scale: 0 }}
+        transition={{ delay: index * 0.05 + 0.3, duration: 0.3 }} // Simplified
       >
         <div className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100/90 dark:bg-gray-800/90 text-gray-700 dark:text-gray-300 backdrop-blur-sm border border-gray-200 dark:border-gray-700">
           {project.status}
@@ -213,23 +209,20 @@ const ProjectCard = ({ project, index }) => {
           <motion.img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            whileHover={{ scale: 1.05 }}
+            className="w-full h-full object-cover transition-transform duration-300" // Removed redundant whileHover
           />
           
-          <motion.div 
-            className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            whileHover={{ opacity: 1 }}
+          <div 
+            className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center"
           >
             <div className="flex gap-4">
               <motion.a
                 href={project.liveLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 bg-white/20 backdrop-blur-lg text-white px-6 py-3 rounded-xl hover:bg-white/30 transition-all duration-200 font-medium"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
+                className="flex items-center gap-3 bg-white/20 backdrop-blur-lg text-white px-6 py-3 rounded-xl hover:bg-white/30 transition-all duration-150 font-medium" // Faster transition
+                whileHover={{ scale: 1.02, y: -1 }} // Reduced movement
+                whileTap={{ scale: 0.98 }}
               >
                 <Globe className="w-5 h-5" />
                 Live Demo
@@ -238,25 +231,23 @@ const ProjectCard = ({ project, index }) => {
                 href={project.githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 bg-white/20 backdrop-blur-lg text-white px-6 py-3 rounded-xl hover:bg-white/30 transition-all duration-200 font-medium"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
+                className="flex items-center gap-3 bg-white/20 backdrop-blur-lg text-white px-6 py-3 rounded-xl hover:bg-white/30 transition-all duration-150 font-medium" // Faster transition
+                whileHover={{ scale: 1.02, y: -1 }} // Reduced movement
+                whileTap={{ scale: 0.98 }}
               >
                 <Github className="w-5 h-5" />
                 Source
               </motion.a>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         <div className={`p-8 ${project.featured ? 'xl:w-1/2' : 'w-full'} flex flex-col justify-between`}>
           <div>
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <motion.div 
-                  className="w-2 h-2 rounded-full bg-teal-500"
-                  animate={{ opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 2, repeat: Infinity }}
+                <div 
+                  className="w-2 h-2 rounded-full bg-teal-500 opacity-70" // Removed animation for performance
                 />
                 <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">
                   Project {index + 1} • {project.year}
@@ -264,12 +255,11 @@ const ProjectCard = ({ project, index }) => {
               </div>
             </div>
             
-            <motion.h3 
-              className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-tight"
-              whileHover={{ x: 5 }}
+            <h3 
+              className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-200 leading-tight"
             >
               {project.title}
-            </motion.h3>
+            </h3>
             
             <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
               {project.description}
@@ -282,14 +272,12 @@ const ProjectCard = ({ project, index }) => {
               </h4>
               <div className="flex flex-wrap gap-2">
                 {project.techStack.map((tech, techIndex) => (
-                  <motion.span
+                  <span
                     key={techIndex}
-                    className="px-3 py-1 text-xs font-medium rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-teal-300 dark:hover:border-teal-600 transition-colors"
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    transition={{ type: "spring", stiffness: 400 }}
+                    className="px-3 py-1 text-xs font-medium rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-teal-300 dark:hover:border-teal-600 transition-colors duration-150"
                   >
                     {tech}
-                  </motion.span>
+                  </span>
                 ))}
               </div>
             </div>
@@ -304,9 +292,9 @@ const ProjectCard = ({ project, index }) => {
                   <motion.div
                     key={highlightIndex}
                     className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                    transition={{ delay: index * 0.1 + highlightIndex * 0.05 + 0.6 }}
+                    initial={{ opacity: 0 }}
+                    animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ delay: index * 0.05 + highlightIndex * 0.02 + 0.3, duration: 0.3 }} // Simplified
                   >
                     <div className="w-1.5 h-1.5 rounded-full bg-teal-500" />
                     {highlight}
@@ -317,14 +305,12 @@ const ProjectCard = ({ project, index }) => {
 
             <div className="flex flex-wrap gap-2 mb-6">
               {project.tags.map((tag, tagIndex) => (
-                <motion.span
+                <span
                   key={tagIndex}
-                  className="px-4 py-2 text-sm font-medium rounded-full bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800 hover:bg-teal-100 dark:hover:bg-teal-900/30 transition-colors"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 400 }}
+                  className="px-4 py-2 text-sm font-medium rounded-full bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800 hover:bg-teal-100 dark:hover:bg-teal-900/30 transition-colors duration-150"
                 >
                   {tag}
-                </motion.span>
+                </span>
               ))}
             </div>
           </div>
@@ -334,9 +320,9 @@ const ProjectCard = ({ project, index }) => {
               href={project.liveLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-3 rounded-xl hover:shadow-md transition-all duration-200 font-medium flex-1 justify-center"
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
+              className="flex items-center gap-3 bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-3 rounded-xl hover:shadow-md transition-all duration-150 font-medium flex-1 justify-center" // Faster transition
+              whileHover={{ scale: 1.01, y: -1 }} // Reduced movement
+              whileTap={{ scale: 0.99 }} // Reduced scale
             >
               <ExternalLink className="w-5 h-5" />
               <span>View Live</span>
@@ -346,9 +332,9 @@ const ProjectCard = ({ project, index }) => {
               href={project.githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-teal-300 dark:hover:border-teal-600 font-medium flex-1 justify-center"
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
+              className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-150 px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-teal-300 dark:hover:border-teal-600 font-medium flex-1 justify-center" // Faster transition
+              whileHover={{ scale: 1.01, y: -1 }} // Reduced movement
+              whileTap={{ scale: 0.99 }} // Reduced scale
             >
               <Github className="w-5 h-5" />
               <span>Source</span>
