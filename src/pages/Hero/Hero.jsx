@@ -5,6 +5,7 @@ import "@/assets/css/tomorrow.css";
 import Meteors from "@/components/ui/meteors";
 import PortfolioPage from "@/pages/About/About";
 import { FlipWords } from "@/components/ui/flip-words";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const GridBackground = () => {
   return (
@@ -24,9 +25,9 @@ const GridBackground = () => {
               width="40"
               height="40"
               fill="none"
-              stroke="white"
+              stroke="currentColor"
               strokeWidth="0.5"
-              className="opacity-40 animate-gridPulse"
+              className="opacity-40 animate-gridPulse text-gray-600 dark:text-white"
             />
           </pattern>
           <rect width="100%" height="100%" fill="url(#grid)" />
@@ -37,6 +38,7 @@ const GridBackground = () => {
 };
 
 export default function Hero() {
+  const { theme } = useTheme();
   const words = [
     "Full-Stack Developer & UI/UX Enthusiast",
     "Learning Integration of AI/ML in Projects ",
@@ -67,6 +69,13 @@ const profile = {
     }
 };
   `);
+
+  useEffect(() => {
+    // Re-highlight code when theme changes
+    setTimeout(() => {
+      Prism.highlightAll();
+    }, 100);
+  }, [theme]);
 
   useEffect(() => {
     Prism.highlightAll();
@@ -128,7 +137,7 @@ const profile = {
 
   return (
     <>
-      <main className="bg-[#020617] text-white min-h-screen">
+      <main className="bg-gray-50 dark:bg-[#020617] text-gray-900 dark:text-white min-h-screen transition-colors duration-300">
         <section
           className="hero min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 py-10 md:py-16 lg:py-0 hero-section-padding"
           style={{ paddingTop: "var(--hero-padding-top, 0)" }}>
@@ -153,19 +162,19 @@ const profile = {
             }}>
             {/* Left column - Text content */}
             <div className="w-full lg:w-1/2 mb-12 lg:mb-0 animate__animated animate__fadeInLeft relative">
-              <div className="absolute hidden lg:-top-20 lg:-left-20 lg:block w-48 h-48 lg:w-64 lg:h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
-              <div className="absolute hidden lg:block lg:top-40 lg:-right-20 w-48 h-48 lg:w-64 lg:h-64 bg-teal-500/10 rounded-full blur-3xl"></div>
+              <div className="absolute hidden lg:-top-20 lg:-left-20 lg:block w-48 h-48 lg:w-64 lg:h-64 bg-blue-500/10 dark:bg-blue-500/10 rounded-full blur-3xl"></div>
+              <div className="absolute hidden lg:block lg:top-40 lg:-right-20 w-48 h-48 lg:w-64 lg:h-64 bg-teal-500/10 dark:bg-teal-500/10 rounded-full blur-3xl"></div>
 
-              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 mb-6 sm:mb-8 animate__animated animate__fadeInDown animate__delay-1s">
-                <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></div>
-                <span className="text-gray-300 text-xs sm:text-sm font-medium">
+              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gray-200/80 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300/50 dark:border-gray-700/50 mb-6 sm:mb-8 animate__animated animate__fadeInDown animate__delay-1s">
+                <div className="w-2 h-2 rounded-full bg-blue-500 dark:bg-blue-400 animate-pulse"></div>
+                <span className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm font-medium">
                   Welcome to my desk
                 </span>
               </div>
 
               <div className="relative mb-6 sm:mb-8 font-[Inter]">
-                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight">
-                  <span className="inline-block animate-fadeInUp  opacity-0 animation-delay-0">
+                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight text-gray-900 dark:text-white">
+                  <span className="inline-block animate-fadeInUp opacity-0 animation-delay-0">
                     Hello,
                   </span>{" "}
                   <span className="inline-block animate-fadeInUp opacity-0 animation-delay-200">
@@ -181,10 +190,10 @@ const profile = {
 
               {/* Role badge */}
               <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl bg-gradient-to-r from-blue-500/10 to-teal-500/10 border border-blue-500/20 mb-6 sm:mb-8 backdrop-blur-sm animate__animated animate__fadeInUp animate__delay-1s">
-                <i className="fas fa-rocket text-blue-400 animate-bounce text-sm sm:text-base"></i>
+                <i className="fas fa-rocket text-blue-500 dark:text-blue-400 animate-bounce text-sm sm:text-base"></i>
                 <span>
                   <FlipWords
-                    className={"text-lg sm:text-xl text-blue-400 font-medium"}
+                    className={"text-lg sm:text-xl text-blue-500 dark:text-blue-400 font-medium"}
                     words={words}
                   />
                 </span>
@@ -192,7 +201,7 @@ const profile = {
 
               {/* Description */}
               <div className="relative mb-8 sm:mb-12 max-w-xl">
-                <p className="text-base sm:text-lg text-gray-200 leading-relaxed tracking-wide font-medium font-sans">
+                <p className="text-base sm:text-lg text-gray-700 dark:text-gray-200 leading-relaxed tracking-wide font-medium font-sans">
                   SDE Intern @Hero MotoCorp (EMBU) &nbsp;|&nbsp; BS in CS & Data
                   Analytics @IIT Patna &nbsp;|&nbsp; Former Intern @Apna College
                   &nbsp;|&nbsp; Full Stack Developer &nbsp;|&nbsp; GPT &
@@ -206,7 +215,7 @@ const profile = {
                 {/* Hire Me Button */}
                 <a
                   href="/#contact"
-                  className="group relative inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-black text-white font-medium border-[2px] border-blue-500 hover:border-blue-400 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-1 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-400/50">
+                  className="group relative inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-blue-600 hover:bg-blue-700 dark:bg-gray-900 dark:hover:bg-black text-white font-medium border-[2px] border-blue-500 hover:border-blue-400 dark:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/30 dark:hover:shadow-blue-500/30 hover:-translate-y-1 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-400/50">
                   <span className="relative z-10">Hire Me</span>
                   <svg
                     className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 relative z-10"
@@ -226,7 +235,7 @@ const profile = {
                 {/* Download CV Button */}
                 <a
                   href="#"
-                  className="group relative inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-black text-white font-medium border border-white/20 hover:border-cyan-400/60 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-400/20 hover:-translate-y-1 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400/50">
+                  className="group relative inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-white hover:bg-gray-50 dark:bg-gray-900 dark:hover:bg-black text-gray-900 dark:text-white font-medium border border-gray-300 hover:border-cyan-400 dark:border-gray-600/50 dark:hover:border-cyan-400/60 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-400/20 dark:hover:shadow-cyan-400/20 hover:-translate-y-1 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400/50">
                   <span className="relative z-10">Download CV</span>
                   <svg
                     className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5 relative z-10"
@@ -275,12 +284,12 @@ const profile = {
             {/* Right column - Code window */}
             <div className="w-full lg:w-1/2 animate__animated animate__fadeInDown animate__delay-0.1s">
               <div className="gradient-border">
-                <div className="code-window bg-[#091121]">
+                <div className={`code-window bg-white dark:bg-[#091121] border border-gray-200 dark:border-transparent shadow-lg dark:shadow-none ${theme === 'light' ? 'light' : 'dark'}`}>
                   <div className="window-header">
                     <div className="window-dot bg-red-500"></div>
                     <div className="window-dot bg-yellow-500"></div>
                     <div className="window-dot bg-green-500"></div>
-                    <span className="ml-2 text-sm text-gray-400 flex items-center gap-2">
+                    <span className="ml-2 text-sm text-gray-700 dark:text-gray-400 flex items-center gap-2">
                       <i className="fas fa-code"></i>
                       developer.js
                     </span>
@@ -296,8 +305,8 @@ const profile = {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce flex flex-col items-center gap-2">
-          <span className="text-gray-400 text-sm flex items-center gap-2">
-            <i className="fas fa-mouse text-blue-400"></i>
+          <span className="text-gray-600 dark:text-gray-400 text-sm flex items-center gap-2">
+            <i className="fas fa-mouse text-blue-500 dark:text-blue-400"></i>
             About me
           </span>
           <i className="fas fa-chevron-down text-blue-400 text-xl"></i>

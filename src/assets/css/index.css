@@ -40,9 +40,46 @@ html {
 
 .gradient-border {
   position: relative;
-  background: linear-gradient(45deg, #60a5fa, #34d399);
+  background: linear-gradient(45deg, #3b82f6, #ffffff, #60a5fa, #e5e7eb);
   padding: 2px;
   border-radius: 0.75rem;
+  background-size: 300% 300%;
+  animation: gradientShift 3s ease infinite, borderPulse 2s ease-in-out infinite;
+}
+
+.dark .gradient-border {
+  background: linear-gradient(45deg, #60a5fa, #34d399);
+  background-size: 300% 300%;
+  animation: gradientShift 3s ease infinite;
+}
+
+.gradient-border:hover {
+  filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.3));
+}
+
+.dark .gradient-border:hover {
+  filter: drop-shadow(0 0 15px rgba(96, 165, 250, 0.4));
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes borderPulse {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 30px rgba(255, 255, 255, 0.2);
+  }
 }
 
 .nav-link {
@@ -69,14 +106,37 @@ html {
   border-radius: 0.75rem;
   overflow: hidden;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.code-window:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.dark .code-window {
+  border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+.dark .code-window:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border-color: rgba(96, 165, 250, 0.5);
 }
 
 .window-header {
-  background: #0b466359;
+  background: #f8fafc;
   padding: 0.75rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.dark .window-header {
+  background: #0b466359;
+  border-bottom: 1px solid #374151;
 }
 
 .window-dot {
@@ -88,6 +148,167 @@ html {
 
 .window-dot:hover {
   transform: scale(1.2);
+}
+
+.code-window pre {
+  margin: 0;
+  padding: 1rem;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+@media (min-width: 640px) {
+  .code-window pre {
+    padding: 1.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .code-window pre {
+    font-size: 0.875rem;
+  }
+}
+
+.code-window code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Monaco', 'Consolas', monospace;
+  font-weight: 400;
+  font-size: inherit;
+}
+
+/* Enhanced mobile responsiveness */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .hero {
+    padding-top: 5rem !important;
+    padding-bottom: 2rem !important;
+    min-height: auto !important;
+  }
+  
+  .gradient-border {
+    padding: 1px;
+  }
+  
+  .code-window {
+    margin-top: 2rem;
+  }
+  
+  .window-header {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .window-dot {
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* Mobile typography scaling */
+  h1 {
+    line-height: 1.1 !important;
+  }
+  
+  /* Mobile buttons */
+  .btn-mobile {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Mobile cards */
+  .card-mobile {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .hero {
+    padding-top: 6rem !important;
+  }
+  
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  /* Tablet optimizations */
+  .grid-tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  /* Laptop optimizations */
+  .section-padding {
+    padding: 4rem 0;
+  }
+}
+
+/* Fix overflow on small screens */
+@media (max-width: 640px) {
+  .overflow-x-auto {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.5);
+    border-radius: 2px;
+  }
+  
+  /* Mobile form improvements */
+  input, textarea {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+  }
+  
+  /* Mobile navigation improvements */
+  .mobile-nav {
+    padding: 1rem;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+  }
+}
+
+/* Landscape mobile phones */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    padding-top: 3rem !important;
+    padding-bottom: 1rem !important;
+  }
+  
+  .section-mobile-landscape {
+    padding: 2rem 0;
+  }
+}
+
+/* Ensure touch targets are large enough */
+@media (max-width: 768px) {
+  button, a, .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .touch-target {
+    padding: 0.75rem;
+  }
 }
 
 .animate-float-slow {

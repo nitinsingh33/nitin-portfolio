@@ -33,15 +33,15 @@ import { MdAnimation } from "react-icons/md";
 import { FcWorkflow } from "react-icons/fc";
 
 const SkillCard = ({ icon: Icon, title, skills, color }) => (
-  <Card className="group relative overflow-hidden bg-gray-900/80 border-gray-700 hover:scale-[1.02] transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20">
+  <Card className="group relative overflow-hidden bg-white/90 dark:bg-gray-900/80 border-gray-200 dark:border-gray-700 hover:scale-[1.02] transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20">
     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(100,100,255,0.1)] to-transparent group-hover:via-[rgba(100,100,255,0.2)] animate-shimmer"></div>
     <CardContent className="p-6 relative z-10">
       <div className="flex items-center gap-4 mb-6">
         <div
-          className={`p-3 rounded-xl bg-gray-800/50 ${color} group-hover:scale-110 transition-transform duration-300`}>
+          className={`p-3 rounded-xl bg-gray-100/80 dark:bg-gray-800/50 ${color} group-hover:scale-110 transition-transform duration-300`}>
           <Icon className="w-8 h-8" />
         </div>
-        <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+        <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 dark:from-white to-gray-600 dark:to-gray-400">
           {title}
         </h3>
       </div>
@@ -50,7 +50,7 @@ const SkillCard = ({ icon: Icon, title, skills, color }) => (
           <Badge
             key={index}
             variant="outline"
-            className="group/badge relative bg-gray-800/50 hover:bg-gray-700/80 text-gray-100 border-gray-600 flex items-center gap-2 py-2 px-3 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 hover:border-blue-400/50 cursor-pointer">
+            className="group/badge relative bg-gray-100/80 dark:bg-gray-800/50 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600 flex items-center gap-2 py-2 px-3 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 hover:border-blue-400/50 cursor-pointer">
             <span className="transform group-hover/badge:scale-110 transition-transform duration-300">
               {skill.icon}
             </span>
@@ -211,12 +211,12 @@ const SkillsSection = () => {
   ];
 
   return (
-    <main className="pt-15 lg:pt-0 text-white min-h-screen bg-[#04081A] relative">
+    <main className="pt-15 lg:pt-0 text-gray-900 dark:text-white min-h-screen bg-gray-50 dark:bg-[#04081A] relative transition-colors duration-300">
       {/* Grid Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
 
       <section className="container mx-auto px-4 py-11 relative z-10">
-        <h2 className="text-5xl md:text-6xl font-extrabold text-center bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent mb-12 tracking-tight drop-shadow-md">
+        <h2 className="text-5xl md:text-6xl font-extrabold text-center bg-gradient-to-r from-teal-600 dark:from-teal-400 to-blue-600 dark:to-blue-500 bg-clip-text text-transparent mb-12 tracking-tight drop-shadow-md">
           Tech Stack & Skills
         </h2>
 

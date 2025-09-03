@@ -99,8 +99,8 @@ export default function Projects() {
 
   return (
     <ReactLenis root>
-      <main className="bg-black" ref={container}>
-        <section className="text-white w-full bg-slate-950">
+      <main className="bg-gray-50 dark:bg-black transition-colors duration-300" ref={container}>
+        <section className="text-gray-900 dark:text-white w-full bg-gray-100 dark:bg-slate-950 transition-colors duration-300">
           {projects.map((project, i) => {
             const targetScale = 1 - (projects.length - i) * 0.05;
             return (
@@ -159,7 +159,7 @@ function Card({
         }}
       >
         {/* Modern split card design */}
-        <div className="w-full flex flex-col md:flex-row bg-zinc-900 rounded-2xl overflow-hidden shadow-xl">
+        <div className="w-full flex flex-col md:flex-row bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-700 rounded-2xl overflow-hidden shadow-xl transition-colors duration-300">
           {/* Image section - full width on mobile, 55% on desktop */}
           <div className="w-full md:w-[55%] h-[250px] md:h-[400px] lg:h-[450px] relative overflow-hidden">
             <motion.img
@@ -194,19 +194,19 @@ function Card({
                   className="w-2 h-2 md:w-3 md:h-3 rounded-full"
                   style={{ backgroundColor: color }}
                 />
-                <div className="h-[1px] w-12 md:w-20 bg-gray-600" />
+                <div className="h-[1px] w-12 md:w-20 bg-gray-400 dark:bg-gray-600" />
               </div>
 
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 md:mb-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2 md:mb-4">
                 {title}
               </h2>
-              <p className="text-sm md:text-base text-gray-400 leading-relaxed line-clamp-3 md:line-clamp-none max-w-md">
+              <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-3 md:line-clamp-none max-w-md">
                 {description}
               </p>
             </div>
 
             <div className="mt-4 md:mt-auto pt-4">
-              <div className="w-full h-[1px] bg-gray-800 mb-4 md:mb-6" />
+              <div className="w-full h-[1px] bg-gray-300 dark:bg-gray-800 mb-4 md:mb-6" />
 
               <div className="flex items-center gap-4">
                 {/* GitHub Link */}
