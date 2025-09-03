@@ -17,8 +17,7 @@ const projects = [
     featured: true,
     year: "2024",
     status: "Active Development",
-    highlights: ["1.2k+ GitHub Stars", "Zero Dependencies", "TypeScript Support", "10k+ Weekly Downloads"],
-    metrics: ["Bundle Size: 12KB gzipped", "Performance: 98/100 Lighthouse", "Coverage: 95% Tests", "Users: 10k+ Developers"]
+    highlights: ["1.2k+ GitHub Stars", "Zero Dependencies", "TypeScript Support", "10k+ Weekly Downloads"]
   },
   {
     title: "CodeWhisperer - Scalable Code Editor Platform",
@@ -32,8 +31,7 @@ const projects = [
     featured: true,
     year: "2024",
     status: "Production Ready",
-    highlights: ["1000+ Concurrent Users", "15+ Languages", "ML-Powered Completion", "99.9% Uptime"],
-    metrics: ["Response Time: <100ms", "Concurrent Users: 1000+", "Languages: 15+", "Availability: 99.9%"]
+    highlights: ["1000+ Concurrent Users", "15+ Languages", "ML-Powered Completion", "99.9% Uptime"]
   },
   {
     title: "CodeKori - AI-Powered Development Platform",
@@ -47,8 +45,7 @@ const projects = [
     featured: false,
     year: "2024",
     status: "Beta Release",
-    highlights: ["AI Code Assistant", "Auto-Scaling", "80% Faster Deployment", "Microservices Architecture"],
-    metrics: ["Deployment Speed: 80% Faster", "Cost Reduction: 40%", "Auto-scaling: 0-100 instances", "AI Accuracy: 92%"]
+    highlights: ["AI Code Assistant", "Auto-Scaling", "80% Faster Deployment", "Microservices Architecture"]
   },
   {
     title: "Distributed Chat System (System Design)",
@@ -62,8 +59,7 @@ const projects = [
     featured: true,
     year: "2024",
     status: "Production Ready",
-    highlights: ["50k+ Concurrent Users", "Sub-second Latency", "99.99% Availability", "Global CDN"],
-    metrics: ["Latency: <200ms global", "Throughput: 100k msg/sec", "Uptime: 99.99%", "Nodes: Auto-scaling"]
+    highlights: ["50k+ Concurrent Users", "Sub-second Latency", "99.99% Availability", "Global CDN"]
   }
 ];
 
@@ -125,7 +121,7 @@ export default function Projects() {
         >
           <motion.h1 
             variants={titleVariants}
-            className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-teal-600 dark:from-teal-400 to-blue-600 dark:to-blue-500 bg-clip-text text-transparent mb-6"
+            className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-emerald-600 dark:from-emerald-400 to-teal-600 dark:to-teal-500 bg-clip-text text-transparent mb-6"
           >
             Featured Projects
           </motion.h1>
@@ -139,8 +135,8 @@ export default function Projects() {
           <motion.div
             initial={{ scaleX: 0 }}
             animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }} // Reduced duration and delay
-            className="w-24 h-1 bg-gradient-to-r from-teal-500 to-blue-500 mx-auto mt-8 rounded-full"
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="w-24 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto mt-8 rounded-full"
           />
         </motion.div>
 
@@ -189,7 +185,7 @@ const ProjectCard = ({ project, index }) => {
       variants={cardVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className={`group relative overflow-hidden rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50 hover:border-teal-300/50 dark:hover:border-teal-600/50 transition-all duration-200 shadow-sm hover:shadow-lg ${
+      className={`group relative overflow-hidden rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50 hover:border-emerald-300/50 dark:hover:border-emerald-600/50 transition-all duration-200 shadow-sm hover:shadow-lg ${
         project.featured ? 'col-span-full' : ''
       }`}
       whileHover={{ 
@@ -204,7 +200,7 @@ const ProjectCard = ({ project, index }) => {
           animate={isInView ? { scale: 1 } : { scale: 0 }}
           transition={{ delay: index * 0.05 + 0.2, duration: 0.3 }} // Simplified animation
         >
-          <div className="flex items-center gap-2 bg-gradient-to-r from-teal-500/90 to-blue-500/90 text-white px-4 py-2 rounded-full text-sm font-medium shadow-sm backdrop-blur-sm">
+          <div className="flex items-center gap-2 bg-gradient-to-r from-emerald-500/90 to-teal-500/90 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm border border-emerald-300/20">
             <Star className="w-4 h-4 fill-current" />
             Featured
           </div>
@@ -274,7 +270,7 @@ const ProjectCard = ({ project, index }) => {
             </div>
             
             <h3 
-              className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-200 leading-tight"
+              className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-200 leading-tight"
             >
               {project.title}
             </h3>
@@ -285,14 +281,14 @@ const ProjectCard = ({ project, index }) => {
             
             <div className="mb-6">
               <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
-                <Code className="w-4 h-4 text-teal-600 dark:text-teal-400" />
+                <Code className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                 Tech Stack
               </h4>
               <div className="flex flex-wrap gap-2">
                 {project.techStack.map((tech, techIndex) => (
                   <span
                     key={techIndex}
-                    className="px-3 py-1 text-xs font-medium rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-teal-300 dark:hover:border-teal-600 transition-colors duration-150"
+                    className="px-3 py-1 text-xs font-medium rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-emerald-300 dark:hover:border-emerald-600 transition-colors duration-150"
                   >
                     {tech}
                   </span>
@@ -302,7 +298,7 @@ const ProjectCard = ({ project, index }) => {
 
             <div className="mb-6">
               <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
-                <Zap className="w-4 h-4 text-teal-600 dark:text-teal-400" />
+                <Zap className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                 Key Features
               </h4>
               <div className="grid grid-cols-2 gap-2">
@@ -312,43 +308,20 @@ const ProjectCard = ({ project, index }) => {
                     className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"
                     initial={{ opacity: 0 }}
                     animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ delay: index * 0.05 + highlightIndex * 0.02 + 0.3, duration: 0.3 }} // Simplified
+                    transition={{ delay: index * 0.05 + highlightIndex * 0.02 + 0.3, duration: 0.3 }}
                   >
-                    <div className="w-1.5 h-1.5 rounded-full bg-teal-500" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                     {highlight}
                   </motion.div>
                 ))}
               </div>
             </div>
 
-            {project.metrics && (
-              <div className="mb-6">
-                <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
-                  <Star className="w-4 h-4 text-teal-600 dark:text-teal-400" />
-                  Performance Metrics
-                </h4>
-                <div className="grid grid-cols-2 gap-2">
-                  {project.metrics.map((metric, metricIndex) => (
-                    <motion.div
-                      key={metricIndex}
-                      className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 rounded-lg px-3 py-2"
-                      initial={{ opacity: 0 }}
-                      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                      transition={{ delay: index * 0.05 + metricIndex * 0.02 + 0.4, duration: 0.3 }}
-                    >
-                      <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                      {metric}
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            )}
-
             <div className="flex flex-wrap gap-2 mb-6">
               {project.tags.map((tag, tagIndex) => (
                 <span
                   key={tagIndex}
-                  className="px-4 py-2 text-sm font-medium rounded-full bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800 hover:bg-teal-100 dark:hover:bg-teal-900/30 transition-colors duration-150"
+                  className="px-4 py-2 text-sm font-medium rounded-full bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 dark:hover:bg-emerald-900/30 transition-colors duration-150"
                 >
                   {tag}
                 </span>
@@ -361,9 +334,9 @@ const ProjectCard = ({ project, index }) => {
               href={project.liveLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-3 rounded-xl hover:shadow-md transition-all duration-150 font-medium flex-1 justify-center" // Faster transition
-              whileHover={{ scale: 1.01, y: -1 }} // Reduced movement
-              whileTap={{ scale: 0.99 }} // Reduced scale
+              className="flex items-center gap-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-3 rounded-xl hover:shadow-lg hover:from-emerald-600 hover:to-teal-600 transition-all duration-200 font-medium flex-1 justify-center"
+              whileHover={{ scale: 1.01, y: -1 }}
+              whileTap={{ scale: 0.99 }}
             >
               <ExternalLink className="w-5 h-5" />
               <span>View Live</span>
@@ -373,9 +346,9 @@ const ProjectCard = ({ project, index }) => {
               href={project.githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-150 px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-teal-300 dark:hover:border-teal-600 font-medium flex-1 justify-center" // Faster transition
-              whileHover={{ scale: 1.01, y: -1 }} // Reduced movement
-              whileTap={{ scale: 0.99 }} // Reduced scale
+              className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-150 px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-emerald-300 dark:hover:border-emerald-600 font-medium flex-1 justify-center"
+              whileHover={{ scale: 1.01, y: -1 }}
+              whileTap={{ scale: 0.99 }}
             >
               <Github className="w-5 h-5" />
               <span>Source</span>
