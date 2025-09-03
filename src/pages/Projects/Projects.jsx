@@ -17,7 +17,7 @@ const projects = [
     featured: true,
     year: "2024",
     status: "Active Development",
-    highlights: ["1.2k+ GitHub Stars", "Zero Dependencies", "TypeScript Support", "10k+ Weekly Downloads"]
+    highlights: ["1.2k+ GitHub Stars", "10k+ Weekly Downloads", "98% Test Coverage", "15kb Minified Size"]
   },
   {
     title: "CodeWhisperer - Scalable Code Editor Platform",
@@ -31,7 +31,7 @@ const projects = [
     featured: true,
     year: "2024",
     status: "Production Ready",
-    highlights: ["1000+ Concurrent Users", "15+ Languages", "ML-Powered Completion", "99.9% Uptime"]
+    highlights: ["1000+ Concurrent Users", "< 100ms Latency", "ML Code Completion", "99.9% Uptime"]
   },
   {
     title: "CodeKori - AI-Powered Development Platform",
@@ -45,7 +45,7 @@ const projects = [
     featured: false,
     year: "2024",
     status: "Beta Release",
-    highlights: ["AI Code Assistant", "Auto-Scaling", "80% Faster Deployment", "Microservices Architecture"]
+    highlights: ["80% Faster Deployment", "Auto-Scaling", "AI Code Review", "5min → 1min Builds"]
   },
   {
     title: "Distributed Chat System (System Design)",
@@ -59,7 +59,7 @@ const projects = [
     featured: true,
     year: "2024",
     status: "Production Ready",
-    highlights: ["50k+ Concurrent Users", "Sub-second Latency", "99.99% Availability", "Global CDN"]
+    highlights: ["50k+ Concurrent Users", "< 50ms Message Latency", "99.99% Availability", "5 Global Regions"]
   }
 ];
 

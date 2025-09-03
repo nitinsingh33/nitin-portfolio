@@ -58,18 +58,18 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md md:bg-transparent md:backdrop-blur-none transition-colors duration-300">
       <div className="md:fixed md:top-4 md:left-1/2 md:transform md:-translate-x-1/2 w-full md:w-auto">
-        <div className="p-[2px] md:rounded-full bg-gradient-to-r from-emerald-400 via-cyan-500 to-indigo-500 animate-gradient-x hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300">
-          <nav className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-md md:rounded-full px-4 md:px-6 py-2.5 transition-colors duration-300">
+        <div className="p-[2px] md:rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-emerald-500 animate-gradient-x hover:shadow-2xl hover:shadow-purple-500/30 dark:hover:shadow-blue-500/40 transition-all duration-500">
+          <nav className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg md:rounded-full px-4 md:px-6 py-2.5 transition-colors duration-300 shadow-lg shadow-purple-500/10 dark:shadow-blue-500/20">
             {/* Mobile Menu Button */}
-            <div className="flex justify-between items-center md:hidden px-2">
-              <a href="#hero" className="text-gray-900 dark:text-white font-bold">
-                Portfolio
+<div className="flex justify-between items-center md:hidden px-2">
+              <a href="#hero" className="text-gray-900 dark:text-white font-bold text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:from-purple-600 hover:to-emerald-600 transition-all duration-300">
+                Nitin&apos;s Portfolio
               </a>
               <div className="flex items-center gap-3">
                 <ThemeToggle />
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="text-gray-900 dark:text-white p-2 rounded-lg hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-gray-500/30 dark:focus:ring-white/30"
+                  className="text-gray-900 dark:text-white p-2.5 rounded-xl hover:bg-gradient-to-r hover:from-blue-500/10 hover:to-purple-500/10 transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-purple-500/30 dark:focus:ring-blue-400/30 hover:shadow-lg hover:shadow-purple-500/20"
                 >
                   <FaBars className={`transition-transform duration-300 ${isMenuOpen ? 'rotate-90' : ''}`} />
                 </button>
@@ -89,21 +89,24 @@ export default function Header() {
                     }}
                     className={`px-3 py-2 md:py-1.5 rounded-lg md:rounded-full text-sm font-medium
                       transition-all duration-300 flex items-center gap-2 relative overflow-hidden group
-                      hover:bg-black/10 dark:hover:bg-white/10 hover:scale-105 hover:shadow-lg hover:shadow-gray-500/10 dark:hover:shadow-white/10
-                      active:scale-95 focus:outline-none focus:ring-2 focus:ring-gray-500/30 dark:focus:ring-white/30
+                      hover:scale-105 hover:shadow-lg active:scale-95 focus:outline-none focus:ring-2
                       ${
                         activeLink === id
-                          ? "bg-black/15 dark:bg-white/15 text-gray-900 dark:text-white shadow-md"
-                          : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                          ? "bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-gray-900 dark:text-white shadow-lg shadow-purple-500/20 border border-purple-500/30 focus:ring-purple-500/30 dark:focus:ring-blue-400/30"
+                          : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gradient-to-r hover:from-blue-500/10 hover:to-purple-500/10 hover:shadow-purple-500/10 dark:hover:shadow-blue-500/10 focus:ring-purple-500/30 dark:focus:ring-blue-400/30"
                       }
                     `}
                   >
                     <Icon
                       className={`text-base transition-all duration-300 ${
-                        activeLink === id ? "scale-110 text-cyan-500 dark:text-cyan-400" : "group-hover:scale-110 group-hover:text-cyan-600 dark:group-hover:text-cyan-300"
+                        activeLink === id ? "scale-110 text-purple-600 dark:text-blue-400" : "group-hover:scale-110 group-hover:text-purple-600 dark:group-hover:text-blue-400"
                       }`}
                     />
                     <span className="inline">{text}</span>
+                    {/* Active indicator dot */}
+                    {activeLink === id && (
+                      <div className="absolute -top-1 -right-1 w-2 h-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full animate-pulse"></div>
+                    )}
                   </a>
                 ))}
                 
@@ -120,16 +123,25 @@ export default function Header() {
       {/* Gradient animation keyframes */}
       <style>{`
         @keyframes gradient-x {
-          0%, 100% {
+          0% {
             background-position: 0% 50%;
           }
-          50% {
+          25% {
             background-position: 100% 50%;
+          }
+          50% {
+            background-position: 100% 100%;
+          }
+          75% {
+            background-position: 0% 100%;
+          }
+          100% {
+            background-position: 0% 50%;
           }
         }
         .animate-gradient-x {
-          animation: gradient-x 3s ease-in-out infinite;
-          background-size: 200% 200%;
+          animation: gradient-x 4s ease-in-out infinite;
+          background-size: 300% 300%;
         }
         @keyframes float-slow {
           0%, 100% { transform: translateY(0px); }

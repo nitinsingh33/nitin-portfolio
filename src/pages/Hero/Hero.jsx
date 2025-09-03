@@ -29,7 +29,7 @@ const profile = {
     hardWorker: true,
     quickLearner: true,
     problemSolver: true,
-    yearsOfExperience: 2, 
+    yearsOfExperience: 3, 
     hireable: function() {
         return (
             this.hardWorker &&
@@ -39,6 +39,9 @@ const profile = {
         );
     }
 };
+
+console.log(\`\${profile.name} is hireable: \${profile.hireable()}\`);
+// Output: "Nitin Singh is hireable: true"
   `);
 
   useEffect(() => {
