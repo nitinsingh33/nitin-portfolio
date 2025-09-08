@@ -1,5 +1,6 @@
-"use client";;
+"use client";
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 import { cn } from "@/lib/utils";
 
@@ -11,9 +12,9 @@ export const Meteors = ({
   useEffect(() => {
     const styles = [...new Array(number)].map(() => ({
       top: -5,
-      left: Math.floor(Math.random() * window.innerWidth) + "px",
+      left: Math.floor(Math.random() * (window.innerWidth || 800)) + "px",
       animationDelay: Math.random() * 1 + 0.2 + "s",
-      animationDuration: Math.floor(Math.random() * 8 + 2) + "s",
+      animationDuration: Math.floor(Math.random() * 6 + 3) + "s", // Slower for better visibility
     }));
     setMeteorStyles(styles);
   }, [number]);
@@ -33,6 +34,10 @@ export const Meteors = ({
       </span>)
     ))}
   </>);
+};
+
+Meteors.propTypes = {
+  number: PropTypes.number,
 };
 
 export default Meteors;

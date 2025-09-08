@@ -30,7 +30,7 @@ export default {
             opacity: '1',
           },
           '100%': {
-            transform: 'rotate(215deg) translateX(-500px)',
+            transform: 'rotate(215deg) translateX(-400px)',
             opacity: '0',
           },
         },

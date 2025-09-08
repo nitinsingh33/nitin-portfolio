@@ -113,29 +113,19 @@ console.log(\`\${profile.name} is hireable: \${profile.hireable()}\`);
     <>
       <main className="bg-gray-50 dark:bg-[#020617] text-gray-900 dark:text-white min-h-screen transition-colors duration-300">
         <section
-          className="hero min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 py-10 md:py-16 lg:py-0 hero-section-padding"
+          className="hero min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 pt-20 pb-10 sm:pt-24 sm:pb-16 md:pt-28 md:pb-20 lg:pt-0 lg:pb-0"
           style={{ paddingTop: "var(--hero-padding-top, 0)" }}>
           <div className="absolute inset-0"></div>
 
           <GridBackground />
 
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <Meteors number={10} />
+            <Meteors number={15} />
           </div>
 
-          <div
-            className="container mx-auto flex flex-col lg:flex-row items-center justify-between relative z-10 py-8 md:py-10 lg:py-12 md:pt-28 xl:pt-28"
-            style={{
-              paddingTop:
-                window.innerWidth >= 1360 &&
-                  window.innerWidth <= 1370 &&
-                  window.innerHeight >= 760 &&
-                  window.innerHeight <= 775
-                  ? "12rem"
-                  : "",
-            }}>
+          <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between relative z-10 gap-8 sm:gap-12 lg:gap-16">
             {/* Left column - Text content */}
-            <div className="w-full lg:w-1/2 mb-12 lg:mb-0 animate__animated animate__fadeInLeft relative">
+            <div className="w-full lg:w-1/2 animate__animated animate__fadeInLeft relative order-1 lg:order-1">
               <div className="absolute hidden lg:-top-20 lg:-left-20 lg:block w-48 h-48 lg:w-64 lg:h-64 bg-blue-500/10 dark:bg-blue-500/10 rounded-full blur-3xl"></div>
               <div className="absolute hidden lg:block lg:top-40 lg:-right-20 w-48 h-48 lg:w-64 lg:h-64 bg-teal-500/10 dark:bg-teal-500/10 rounded-full blur-3xl"></div>
 
@@ -175,11 +165,8 @@ console.log(\`\${profile.name} is hireable: \${profile.hireable()}\`);
 
               {/* Description */}
               <div className="relative mb-8 sm:mb-12 max-w-xl">
-                <p className="text-base sm:text-lg text-gray-700 dark:text-gray-200 leading-relaxed tracking-wide font-medium font-sans">
-                  SDE Intern @Hero MotoCorp (EMBU) &nbsp;|&nbsp; BS in CS & Data
-                  Analytics @IIT Patna &nbsp;|&nbsp; Former Intern @Apna College
-                  &nbsp;|&nbsp; Full Stack Developer &nbsp;|&nbsp; GPT &
-                  Automatio
+                <p className="text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-200 leading-relaxed tracking-wide font-medium font-sans">
+                  SDE Intern @Hero MotoCorp (EMBU) • BS in CS & Data Analytics @IIT Patna • Former Intern @Apna College • Full Stack Developer • GPT & Automation
                 </p>
               </div>
 
@@ -256,14 +243,14 @@ console.log(\`\${profile.name} is hireable: \${profile.hireable()}\`);
             </div>
 
             {/* Right column - Code window */}
-            <div className="w-full lg:w-1/2 animate__animated animate__fadeInDown animate__delay-0.1s">
-              <div className="gradient-border">
+            <div className="w-full lg:w-1/2 animate__animated animate__fadeInDown animate__delay-0.1s order-2 lg:order-2 mt-6 sm:mt-8 lg:mt-0">
+              <div className="gradient-border mx-auto max-w-lg lg:max-w-none">
                 <div className={`code-window bg-white dark:bg-[#091121] border border-gray-200 dark:border-transparent shadow-lg dark:shadow-none ${theme === 'light' ? 'light' : 'dark'}`}>
                   <div className="window-header">
                     <div className="window-dot bg-red-500"></div>
                     <div className="window-dot bg-yellow-500"></div>
                     <div className="window-dot bg-green-500"></div>
-                    <span className="ml-2 text-sm text-gray-700 dark:text-gray-400 flex items-center gap-2">
+                    <span className="ml-2 text-xs sm:text-sm text-gray-700 dark:text-gray-400 flex items-center gap-2">
                       <i className="fas fa-code"></i>
                       developer.js
                     </span>
