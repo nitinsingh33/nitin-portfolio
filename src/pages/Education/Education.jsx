@@ -14,11 +14,11 @@ const EducationSection = () => {
 
   const educationData = [
     {
-      degree: "Computer Science and Data Analytics (BS)",
+      degree: "Computer Science and Data Analytics (B.Tech)",
       school: "IIT Patna",
       mascot: "📘",
       year: "2023-2027",
-      achievements: ["CPI: 7.91", "Core: Computer Science"],
+      achievements: ["CPI: 8.15", "Core: Computer Science"],
       skills: ["Java", "Python", "React", "Node"],
       description:
         "Focused on core computer science subjects with emphasis on practical software development and data analytics methodologies.",
@@ -28,7 +28,7 @@ const EducationSection = () => {
       school: "Rose Land Public School, Gurugram",
       mascot: "📗",
       year: "2021-2023",
-      achievements: ["Percentage: 81%", "Subject: PCM"],
+      achievements: ["Percentage: 91%", "Subject: PCM"],
       skills: ["Mathematics", "Physics", "Chemistry", "Computer Science"],
       description:
         "Developed strong analytical and critical thinking skills through comprehensive study of science and mathematics.",
