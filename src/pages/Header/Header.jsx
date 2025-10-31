@@ -10,7 +10,6 @@ import {
   FaChartLine,
   FaBlog,
 } from "react-icons/fa";
-import ThemeToggle from "../../components/ui/ThemeToggle";
 
 export default function Header() {
   const [activeLink, setActiveLink] = useState("home");
@@ -59,16 +58,15 @@ export default function Header() {
     <header className="fixed top-0 left-0 w-full z-50 transition-colors duration-300">
       {/* Mobile Navigation */}
       <div className="md:hidden">
-        <nav className="bg-white/98 dark:bg-gray-900/98 backdrop-blur-sm border-b border-gray-200/50 dark:border-gray-700/50 px-4 py-3">
+        <nav className="bg-gray-900/98 backdrop-blur-sm border-b border-gray-700/50 px-4 py-3">
           <div className="flex justify-between items-center">
-            <a href="#hero" className="text-gray-900 dark:text-white font-semibold text-lg">
+            <a href="#hero" className="text-white font-semibold text-lg">
               Nitin&apos;s Portfolio
             </a>
             <div className="flex items-center gap-3">
-              <ThemeToggle />
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-700 dark:text-gray-300 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
+                className="text-gray-300 p-2 rounded-lg hover:bg-gray-800 transition-all duration-200"
               >
                 <FaBars className={`w-5 h-5 transition-transform duration-300 ${isMenuOpen ? 'rotate-90' : ''}`} />
               </button>
@@ -90,8 +88,8 @@ export default function Header() {
                   }}
                   className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                     activeLink === id
-                      ? "bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 border-l-4 border-blue-500"
-                      : "text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:text-gray-900 dark:hover:text-white"
+                      ? "bg-blue-900/30 text-blue-400 border-l-4 border-blue-500"
+                      : "text-gray-300 hover:bg-gray-800/50 hover:text-white"
                   }`}
                 >
                   <Icon className={`w-5 h-5 ${
@@ -109,7 +107,7 @@ export default function Header() {
       <div className="hidden md:block">
         <div className="md:fixed md:top-4 md:left-1/2 md:transform md:-translate-x-1/2 w-full md:w-auto">
           <div className="p-[2px] md:rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-emerald-500 animate-gradient-x hover:shadow-2xl hover:shadow-purple-500/30 dark:hover:shadow-blue-500/40 transition-all duration-500">
-            <nav className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg md:rounded-full px-4 md:px-6 py-2.5 transition-colors duration-300 shadow-lg shadow-purple-500/10 dark:shadow-blue-500/20">
+            <nav className="bg-gray-900/95 backdrop-blur-lg md:rounded-full px-4 md:px-6 py-2.5 shadow-lg shadow-blue-500/20">
               <div className="flex flex-row items-center gap-1 lg:gap-2">
                 {navLinks.map(({ id, icon: Icon, text }) => (
                   <a
@@ -124,14 +122,14 @@ export default function Header() {
                       hover:scale-105 hover:shadow-lg active:scale-95 focus:outline-none focus:ring-2
                       ${
                         activeLink === id
-                          ? "bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-gray-900 dark:text-white shadow-lg shadow-purple-500/20 border border-purple-500/30 focus:ring-purple-500/30 dark:focus:ring-blue-400/30"
-                          : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gradient-to-r hover:from-blue-500/10 hover:to-purple-500/10 hover:shadow-purple-500/10 dark:hover:shadow-blue-500/10 focus:ring-purple-500/30 dark:focus:ring-blue-400/30"
+                          ? "bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white shadow-lg shadow-purple-500/20 border border-purple-500/30 focus:ring-blue-400/30"
+                          : "text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-blue-500/10 hover:to-purple-500/10 hover:shadow-blue-500/10 focus:ring-blue-400/30"
                       }
                     `}
                   >
                     <Icon
                       className={`text-base transition-all duration-300 ${
-                        activeLink === id ? "scale-110 text-purple-600 dark:text-blue-400" : "group-hover:scale-110 group-hover:text-purple-600 dark:group-hover:text-blue-400"
+                        activeLink === id ? "scale-110 text-blue-400" : "group-hover:scale-110 group-hover:text-blue-400"
                       }`}
                     />
                     <span className="inline">{text}</span>
@@ -141,11 +139,6 @@ export default function Header() {
                     )}
                   </a>
                 ))}
-                
-                {/* Theme Toggle for Desktop */}
-                <div className="ml-2">
-                  <ThemeToggle />
-                </div>
               </div>
             </nav>
           </div>

@@ -5,11 +5,9 @@ import "@/assets/css/tomorrow.css";
 import Meteors from "@/components/ui/meteors";
 import PortfolioPage from "@/pages/About/About";
 import { FlipWords } from "@/components/ui/flip-words";
-import { useTheme } from "@/contexts/ThemeContext";
 import GridBackground from "@/components/GridBackground";
 
 export default function Hero() {
-  const { theme } = useTheme();
   const words = [
     "Full-Stack Developer & UI/UX Enthusiast",
     "Learning Integration of AI/ML in Projects ",
@@ -42,11 +40,11 @@ const profile = {
   `);
 
   useEffect(() => {
-    // Re-highlight code when theme changes
+    // Re-highlight code
     setTimeout(() => {
       Prism.highlightAll();
     }, 100);
-  }, [theme]);
+  }, []);
 
   useEffect(() => {
     Prism.highlightAll();
@@ -108,7 +106,7 @@ const profile = {
 
   return (
     <>
-      <main className="bg-gray-50 dark:bg-[#020617] text-gray-900 dark:text-white min-h-screen transition-colors duration-300">
+      <main className="bg-[#020617] text-white min-h-screen">
         <section
           className="hero min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 pt-20 pb-10 sm:pt-24 sm:pb-16 md:pt-28 md:pb-20 lg:pt-0 lg:pb-0"
           style={{ paddingTop: "var(--hero-padding-top, 0)" }}>
@@ -123,18 +121,18 @@ const profile = {
           <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between relative z-10 gap-8 sm:gap-12 lg:gap-16">
             {/* Left column - Text content */}
             <div className="w-full lg:w-1/2 animate__animated animate__fadeInLeft relative order-1 lg:order-1">
-              <div className="absolute hidden lg:-top-20 lg:-left-20 lg:block w-48 h-48 lg:w-64 lg:h-64 bg-blue-500/10 dark:bg-blue-500/10 rounded-full blur-3xl"></div>
-              <div className="absolute hidden lg:block lg:top-40 lg:-right-20 w-48 h-48 lg:w-64 lg:h-64 bg-teal-500/10 dark:bg-teal-500/10 rounded-full blur-3xl"></div>
+              <div className="absolute hidden lg:-top-20 lg:-left-20 lg:block w-48 h-48 lg:w-64 lg:h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+              <div className="absolute hidden lg:block lg:top-40 lg:-right-20 w-48 h-48 lg:w-64 lg:h-64 bg-teal-500/10 rounded-full blur-3xl"></div>
 
-              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gray-200/80 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300/50 dark:border-gray-700/50 mb-6 sm:mb-8 animate__animated animate__fadeInDown animate__delay-1s">
-                <div className="w-2 h-2 rounded-full bg-blue-500 dark:bg-blue-400 animate-pulse"></div>
-                <span className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm font-medium">
+              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 mb-6 sm:mb-8 animate__animated animate__fadeInDown animate__delay-1s">
+                <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></div>
+                <span className="text-gray-300 text-xs sm:text-sm font-medium">
                   Welcome to my desk
                 </span>
               </div>
 
               <div className="relative mb-6 sm:mb-8 font-[Inter]">
-                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight text-gray-900 dark:text-white">
+                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight text-white">
                   <span className="inline-block animate-fadeInUp opacity-0 animation-delay-0">
                     Hello,
                   </span>{" "}
@@ -151,10 +149,10 @@ const profile = {
 
               {/* Role badge */}
               <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl bg-gradient-to-r from-blue-500/10 to-teal-500/10 border border-blue-500/20 mb-6 sm:mb-8 backdrop-blur-sm animate__animated animate__fadeInUp animate__delay-1s">
-                <i className="fas fa-rocket text-blue-500 dark:text-blue-400 animate-bounce text-sm sm:text-base"></i>
+                <i className="fas fa-rocket text-blue-400 animate-bounce text-sm sm:text-base"></i>
                 <span>
                   <FlipWords
-                    className={"text-lg sm:text-xl text-blue-500 dark:text-blue-400 font-medium"}
+                    className={"text-lg sm:text-xl text-blue-400 font-medium"}
                     words={words}
                   />
                 </span>
@@ -162,7 +160,7 @@ const profile = {
 
               {/* Description */}
               <div className="relative mb-8 sm:mb-12 max-w-xl">
-                <p className="text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-200 leading-relaxed tracking-wide font-medium font-sans">
+                <p className="text-sm sm:text-base lg:text-lg text-gray-200 leading-relaxed tracking-wide font-medium font-sans">
                   SDE Intern @Hero MotoCorp (EMBU) • BS in CS & Data Analytics @IIT Patna • Former Intern @Apna College • Full Stack Developer • GPT & Automation
                 </p>
               </div>
@@ -173,7 +171,7 @@ const profile = {
                 {/* Hire Me Button */}
                 <a
                   href="/#contact"
-                  className="group relative inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-blue-600 hover:bg-blue-700 dark:bg-gray-900 dark:hover:bg-black text-white font-medium border-[2px] border-blue-500 hover:border-blue-400 dark:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/30 dark:hover:shadow-blue-500/30 hover:-translate-y-1 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-400/50">
+                  className="group relative inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-gray-900 hover:bg-black text-white font-medium border-[2px] border-blue-500 hover:border-blue-400 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-1 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-400/50">
                   <span className="relative z-10">Hire Me</span>
                   <svg
                     className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 relative z-10"
