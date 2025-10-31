@@ -262,13 +262,13 @@ const profile = {
         </section>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce flex flex-col items-center gap-2">
+        {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce flex flex-col items-center gap-2">
           <span className="text-gray-400 text-sm flex items-center gap-2">
             <i className="fas fa-mouse text-blue-500"></i>
             About me
           </span>
           <i className="fas fa-chevron-down text-blue-400 text-xl"></i>
-        </div>
+        </div> */}
         <PortfolioPage />
       </main>
     </>
