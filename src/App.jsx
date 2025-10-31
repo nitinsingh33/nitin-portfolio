@@ -9,8 +9,6 @@ import Header from "./pages/Header/Header";
 import Hero from "./pages/Hero/Hero";
 import Skills from "./pages/Skills/Skills";
 import Education from "./pages/Education/Education";
-import DSA from "./pages/DSA/DSA";
-import Blog from "./pages/Blog/Blog";
 import Footer from "./components/Footer";
 
 import { Route, Routes } from "react-router-dom";
@@ -37,14 +35,8 @@ export default function App() {
           <section id="education">
             <Education />
           </section>
-          <section id="dsa">
-            <DSA />
-          </section>
           <section id="projects">
             <Projects />
-          </section>
-          <section id="blog">
-            <Blog />
           </section>
           <section id="contact">
             <Contact />
