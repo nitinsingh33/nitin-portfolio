@@ -39,9 +39,6 @@ const profile = {
         );
     }
 };
-
-console.log(\`\${profile.name} is hireable: \${profile.hireable()}\`);
-// Output: "Nitin Singh is hireable: true"
   `);
 
   useEffect(() => {
