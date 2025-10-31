@@ -240,14 +240,14 @@ const profile = {
             </div>
 
             {/* Right column - Code window */}
-            <div className="w-full lg:w-1/2 animate__animated animate__fadeInDown animate__delay-0.1s order-2 lg:order-2 mt-6 sm:mt-8 lg:mt-0">
-              <div className="gradient-border mx-auto max-w-lg lg:max-w-none">
-                <div className={`code-window bg-white dark:bg-[#091121] border border-gray-200 dark:border-transparent shadow-lg dark:shadow-none ${theme === 'light' ? 'light' : 'dark'}`}>
+            <div className="w-full lg:w-1/2 animate__animated animate__fadeInDown animate__delay-0.1s">
+              <div className="gradient-border">
+                <div className="code-window bg-[#091121]">
                   <div className="window-header">
                     <div className="window-dot bg-red-500"></div>
                     <div className="window-dot bg-yellow-500"></div>
                     <div className="window-dot bg-green-500"></div>
-                    <span className="ml-2 text-xs sm:text-sm text-gray-700 dark:text-gray-400 flex items-center gap-2">
+                    <span className="ml-2 text-sm text-gray-400 flex items-center gap-2">
                       <i className="fas fa-code"></i>
                       developer.js
                     </span>
@@ -263,8 +263,8 @@ const profile = {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce flex flex-col items-center gap-2">
-          <span className="text-gray-600 dark:text-gray-400 text-sm flex items-center gap-2">
-            <i className="fas fa-mouse text-blue-500 dark:text-blue-400"></i>
+          <span className="text-gray-400 text-sm flex items-center gap-2">
+            <i className="fas fa-mouse text-blue-500"></i>
             About me
           </span>
           <i className="fas fa-chevron-down text-blue-400 text-xl"></i>
