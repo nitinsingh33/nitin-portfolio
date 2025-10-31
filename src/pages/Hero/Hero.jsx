@@ -91,7 +91,7 @@ const profile = {
           "12rem"
         );
       } else {
-        document.documentElement.style.setProperty("--hero-padding-top", "0");
+        document.documentElement.style.setProperty("--hero-padding-top", "4rem");
       }
     };
 
