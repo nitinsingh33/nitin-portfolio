@@ -40,14 +40,11 @@ const profile = {
   `);
 
   useEffect(() => {
-    // Re-highlight code
+    // Re-highlight code and add animations
     setTimeout(() => {
       Prism.highlightAll();
     }, 100);
-  }, []);
 
-  useEffect(() => {
-    Prism.highlightAll();
     const style = document.createElement("style");
     style.textContent = `
       @keyframes gridPulse {
@@ -59,57 +56,19 @@ const profile = {
         0%, 100% { opacity: 0.2; transform: scale(0.8); }
         50% { opacity: 0.5; transform: scale(1.2); }
       }
-      
-      /* Media query for 1366x768 resolution */
-      @media screen and (width: 1366px) and (height: 768px), 
-             screen and (width: 1367px) and (height: 768px),
-             screen and (width: 1368px) and (height: 769px) {
-        .hero {
-          padding-top: 12rem !important;
-        }
-        .hero .container {
-          padding-top: 10rem !important;
-          margin-top: 5rem !important;
-        }
-        .hero-section-padding {
-          padding-top: 12rem !important;
-        }
-      }
     `;
     document.head.appendChild(style);
 
-    const checkResolution = () => {
-      const isTargetResolution =
-        window.innerWidth >= 1360 &&
-        window.innerWidth <= 1370 &&
-        window.innerHeight >= 760 &&
-        window.innerHeight <= 775;
-
-      if (isTargetResolution) {
-        document.documentElement.style.setProperty(
-          "--hero-padding-top",
-          "12rem"
-        );
-      } else {
-        document.documentElement.style.setProperty("--hero-padding-top", "4rem");
-      }
-    };
-
-    checkResolution();
-    window.addEventListener("resize", checkResolution);
-
     return () => {
       document.head.removeChild(style);
-      window.removeEventListener("resize", checkResolution);
     };
-  }, [code]);
+  }, []);
 
   return (
     <>
       <main className="bg-[#020617] text-white min-h-screen">
         <section
-          className="hero min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 pt-20 pb-10 sm:pt-24 sm:pb-16 md:pt-28 md:pb-20 lg:pt-0 lg:pb-0"
-          style={{ paddingTop: "var(--hero-padding-top, 0)" }}>
+          className="hero min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-6 sm:pb-10">
           <div className="absolute inset-0"></div>
 
           <GridBackground />
@@ -118,21 +77,21 @@ const profile = {
             <Meteors number={15} />
           </div>
 
-          <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between relative z-10 gap-8 sm:gap-12 lg:gap-16">
+          <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center lg:justify-between relative z-10 gap-6 sm:gap-8 lg:gap-16 text-center lg:text-left">
             {/* Left column - Text content */}
             <div className="w-full lg:w-1/2 animate__animated animate__fadeInLeft relative order-1 lg:order-1">
               <div className="absolute hidden lg:-top-20 lg:-left-20 lg:block w-48 h-48 lg:w-64 lg:h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
               <div className="absolute hidden lg:block lg:top-40 lg:-right-20 w-48 h-48 lg:w-64 lg:h-64 bg-teal-500/10 rounded-full blur-3xl"></div>
 
-              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 mb-6 sm:mb-8 animate__animated animate__fadeInDown animate__delay-1s">
+              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 mb-4 sm:mb-6 animate__animated animate__fadeInDown animate__delay-1s">
                 <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></div>
                 <span className="text-gray-300 text-xs sm:text-sm font-medium">
                   Welcome to my desk
                 </span>
               </div>
 
-              <div className="relative mb-6 sm:mb-8 font-[Inter]">
-                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight text-white">
+              <div className="relative mb-4 sm:mb-6 font-[Inter]">
+                <h1 className="text-3xl sm:text-4xl lg:text-7xl font-bold leading-tight text-white">
                   <span className="inline-block animate-fadeInUp opacity-0 animation-delay-0">
                     Hello,
                   </span>{" "}
@@ -148,30 +107,30 @@ const profile = {
               </div>
 
               {/* Role badge */}
-              <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl bg-gradient-to-r from-blue-500/10 to-teal-500/10 border border-blue-500/20 mb-6 sm:mb-8 backdrop-blur-sm animate__animated animate__fadeInUp animate__delay-1s">
+              <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-blue-500/10 to-teal-500/10 border border-blue-500/20 mb-4 sm:mb-6 backdrop-blur-sm animate__animated animate__fadeInUp animate__delay-1s">
                 <i className="fas fa-rocket text-blue-400 animate-bounce text-sm sm:text-base"></i>
                 <span>
                   <FlipWords
-                    className={"text-lg sm:text-xl text-blue-400 font-medium"}
+                    className={"text-sm sm:text-lg text-blue-400 font-medium"}
                     words={words}
                   />
                 </span>
               </div>
 
               {/* Description */}
-              <div className="relative mb-8 sm:mb-12 max-w-xl">
-                <p className="text-sm sm:text-base lg:text-lg text-gray-200 leading-relaxed tracking-wide font-medium font-sans">
+              <div className="relative mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0">
+                <p className="text-xs sm:text-sm lg:text-base text-gray-200 leading-relaxed font-medium font-sans">
                   SDE Intern @Hero MotoCorp (EMBU) • BS in CS & Data Analytics @IIT Patna • Former Intern @Apna College • Full Stack Developer • GPT & Automation
                 </p>
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 animate__animated animate__fadeInUp animate__delay-2s">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start animate__animated animate__fadeInUp animate__delay-2s">
 
                 {/* Hire Me Button */}
                 <a
                   href="/#contact"
-                  className="group relative inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-gray-900 hover:bg-black text-white font-medium border-[2px] border-blue-500 hover:border-blue-400 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-1 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-400/50">
+                  className="group relative inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg bg-gray-900 hover:bg-black text-white font-medium border-[2px] border-blue-500 hover:border-blue-400 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-1 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-400/50 text-sm sm:text-base">
                   <span className="relative z-10">Hire Me</span>
                   <svg
                     className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 relative z-10"
@@ -191,7 +150,7 @@ const profile = {
                 {/* Download CV Button */}
                 <a
                   href="#"
-                  className="group relative inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-white hover:bg-gray-50 dark:bg-gray-900 dark:hover:bg-black text-gray-900 dark:text-white font-medium border border-gray-300 hover:border-cyan-400 dark:border-gray-600/50 dark:hover:border-cyan-400/60 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-400/20 dark:hover:shadow-cyan-400/20 hover:-translate-y-1 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400/50">
+                  className="group relative inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg bg-gray-900 hover:bg-black text-white font-medium border border-gray-600/50 hover:border-cyan-400/60 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-400/20 hover:-translate-y-1 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 text-sm sm:text-base">
                   <span className="relative z-10">Download CV</span>
                   <svg
                     className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5 relative z-10"
@@ -238,7 +197,7 @@ const profile = {
             </div>
 
             {/* Right column - Code window */}
-            <div className="w-full lg:w-1/2 lg:order-last animate__animated animate__fadeInDown animate__delay-0.1s">
+            <div className="w-full lg:w-1/2 animate__animated animate__fadeInDown animate__delay-0.1s order-2 mt-4 lg:mt-0">
               <div className="gradient-border">
                 <div className="code-window bg-[#091121]">
                   <div className="window-header">
