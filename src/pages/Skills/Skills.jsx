@@ -299,15 +299,6 @@ const SkillsSection = () => {
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
         >
-          <motion.div
-            variants={itemVariants}
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-emerald-500/10 border border-blue-500/20 mb-8 backdrop-blur-sm"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Zap className="w-5 h-5 text-blue-500 dark:text-blue-400" />
-            <span className="text-blue-500 dark:text-blue-400 font-medium">Technical Arsenal</span>
-          </motion.div>
 
           <motion.h2 
             variants={itemVariants}

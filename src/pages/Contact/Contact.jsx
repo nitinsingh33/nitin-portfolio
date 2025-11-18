@@ -119,7 +119,7 @@ export default function Contact() {
         </motion.div>
 
         {/* Availability Status */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
@@ -129,7 +129,7 @@ export default function Contact() {
             <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
             <span className="text-green-400 font-medium">Available for new projects</span>
           </div>
-        </motion.div>
+        </motion.div> */}
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Contact Info */}
@@ -190,23 +190,7 @@ export default function Contact() {
                   <p className="text-sm text-purple-600 dark:text-purple-400">Available 9 AM - 6 PM IST</p>
                 </div>
               </motion.div>
-
-              {/* Quick Response Info */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7, duration: 0.5 }}
-                className="bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/30 rounded-xl p-4"
-              >
-                <div className="flex items-center gap-2 mb-2">
-                  <Clock className="w-5 h-5 text-emerald-400" />
-                  <h3 className="font-semibold text-gray-900 dark:text-white">Quick Response</h3>
-                </div>
-                <p className="text-gray-700 dark:text-gray-300 text-sm">
-                  I typically respond to emails within 2-4 hours during business days. 
-                  For urgent matters, feel free to connect on LinkedIn.
-                </p>
-              </motion.div>
+              
 
               {/* Social Media Links */}
               <motion.div
@@ -234,7 +218,7 @@ export default function Contact() {
                     <Linkedin className="w-6 h-6 text-blue-600 group-hover:text-blue-700 dark:text-blue-400 dark:group-hover:text-blue-300" />
                   </a>
                   <a
-                    href="https://twitter.com/nitinsingh33"
+                    href="https://x.com/nitin_folk"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group bg-slate-50 hover:bg-slate-100 dark:bg-slate-900/50 dark:hover:bg-slate-800/80 border border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-500 p-3 rounded-lg transition-all duration-300 hover:scale-110"

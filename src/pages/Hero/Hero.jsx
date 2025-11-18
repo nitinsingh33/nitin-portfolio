@@ -86,7 +86,7 @@ const profile = {
               <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 mb-4 sm:mb-6 animate__animated animate__fadeInDown animate__delay-1s">
                 <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></div>
                 <span className="text-gray-300 text-xs sm:text-sm font-medium">
-                  Welcome to my desk
+                  Welcome to my space!
                 </span>
               </div>
 
@@ -149,7 +149,7 @@ const profile = {
 
                 {/* Download CV Button */}
                 <a
-                  href="#"
+                  href="https://drive.google.com/file/d/1kh7Dz1lVGva0JeFJB_88jAIWOh4dyMpw/view?usp=drive_link"
                   className="group relative inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg bg-gray-900 hover:bg-black text-white font-medium border border-gray-600/50 hover:border-cyan-400/60 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-400/20 hover:-translate-y-1 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 text-sm sm:text-base">
                   <span className="relative z-10">Download CV</span>
                   <svg
