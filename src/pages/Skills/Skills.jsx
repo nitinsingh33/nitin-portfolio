@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import IconCloudDemo from "@/components/globe";
-import { Code2, Paintbrush, Database, Layout, Cpu, Cloud, Zap, Globe } from "lucide-react";
+import { Code2, Database, Layout, Cpu, Cloud, Zap, Globe } from "lucide-react";
 import GridBackground from "@/components/GridBackground";
 import {
   FaReact,
@@ -36,22 +36,21 @@ import { FcWorkflow } from "react-icons/fc";
 
 const SkillCard = ({ icon: Icon, title, skills, color, index }) => (
   <motion.div
-    initial={{ opacity: 0, y: 60 }}
+    initial={{ opacity: 0, y: 30 }}
     animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
+    transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
   >
-    <Card className="group relative overflow-hidden bg-white/90 dark:bg-gray-900/80 border-gray-200 dark:border-gray-700 hover:scale-[1.02] transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20">
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(100,100,255,0.1)] to-transparent group-hover:via-[rgba(100,100,255,0.2)] animate-shimmer"></div>
+    <Card className="group relative overflow-hidden bg-gray-900/95 dark:bg-gray-900/90 border-gray-700/50 dark:border-gray-600/50 hover:border-blue-500/50 dark:hover:border-blue-400/50 hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10 transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm">
       <CardContent className="p-6 relative z-10">
         <div className="flex items-center gap-4 mb-6">
           <motion.div
-            className={`p-3 rounded-xl bg-gray-100/80 dark:bg-gray-800/50 ${color} group-hover:scale-110 transition-transform duration-300`}
-            whileHover={{ rotate: 360 }}
-            transition={{ duration: 0.6 }}
+            className={`p-3 rounded-lg bg-gray-800/80 dark:bg-gray-700/80 ${color} transition-all duration-300 group-hover:bg-gray-700/90 dark:group-hover:bg-gray-600/90 backdrop-blur-sm`}
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.2 }}
           >
-            <Icon className="w-8 h-8" />
+            <Icon className="w-6 h-6" />
           </motion.div>
-          <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 dark:from-white to-gray-600 dark:to-gray-400">
+          <h3 className="text-xl font-semibold text-gray-100 dark:text-white group-hover:text-blue-400 dark:group-hover:text-blue-300 transition-colors duration-300">
             {title}
           </h3>
         </div>
@@ -59,17 +58,15 @@ const SkillCard = ({ icon: Icon, title, skills, color, index }) => (
           {skills.map((skill, skillIndex) => (
             <motion.div
               key={skillIndex}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: (index * 0.1) + (skillIndex * 0.05) }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3, delay: (index * 0.1) + (skillIndex * 0.02) }}
             >
               <Badge
                 variant="outline"
-                className="group/badge relative bg-gray-100/80 dark:bg-gray-800/50 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600 flex items-center gap-2 py-2 px-3 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 hover:border-blue-400/50 cursor-pointer">
-                <span className="transform group-hover/badge:scale-110 transition-transform duration-300">
-                  {skill.icon}
-                </span>
-                <span className="font-medium">{skill.name}</span>
+                className="bg-gray-800/60 dark:bg-gray-800/60 hover:bg-blue-900/50 dark:hover:bg-blue-900/40 text-gray-300 dark:text-gray-200 hover:text-blue-300 dark:hover:text-blue-200 border-gray-600/50 dark:border-gray-500/50 hover:border-blue-400/60 dark:hover:border-blue-300/60 flex items-center gap-2 py-1.5 px-3 transition-all duration-200 cursor-pointer hover:scale-105 backdrop-blur-sm">
+                <span>{skill.icon}</span>
+                <span className="font-medium text-sm">{skill.name}</span>
               </Badge>
             </motion.div>
           ))}
@@ -242,32 +239,32 @@ const SkillsSection = () => {
       ],
     },
     {
-      icon: Paintbrush,
-      title: "Creative Skills",
+      icon: Cpu,
+      title: "AI & LLM",
       color: "text-yellow-400",
       skills: [
         {
-          name: "UI Animation",
+          name: "LangChain",
           icon: <MdAnimation className="w-4 h-4 text-[#FF4081]" />,
         },
         {
-          name: "SVG Animation",
-          icon: <MdAnimation className="w-4 h-4 text-[#00C853]" />,
+          name: "FastAPI",
+          icon: <Zap className="w-4 h-4 text-[#00C853]" />,
         },
         {
-          name: "3D Modeling",
-          icon: <Cpu className="w-4 h-4 text-[#7C4DFF]" />,
+          name: "Pinecone DB",
+          icon: <Database className="w-4 h-4 text-[#7C4DFF]" />,
         },
         {
-          name: "Motion Graphics",
-          icon: <MdAnimation className="w-4 h-4 text-[#FF6D00]" />,
+          name: "Gemini",
+          icon: <Globe className="w-4 h-4 text-[#FF6D00]" />,
         },
       ],
     },
   ];
 
   return (
-    <main className="pt-15 lg:pt-0 text-gray-900 dark:text-white min-h-screen bg-gray-50 dark:bg-[#020617] relative transition-colors duration-300 overflow-hidden">
+    <main className="pt-12 lg:pt-16 text-gray-900 dark:text-white min-h-screen bg-gray-50 dark:bg-[#020617] relative transition-colors duration-300 overflow-hidden">
       <GridBackground />
 
       {/* Floating background elements */}
@@ -291,7 +288,7 @@ const SkillsSection = () => {
         />
       </div>
 
-      <section className="container mx-auto px-4 py-16 md:py-24 relative z-10">
+      <section className="container mx-auto px-4 py-12 md:py-16 relative z-10">
         {/* Enhanced Title Section */}
         <motion.div 
           className="text-center mb-20"
@@ -319,7 +316,7 @@ const SkillsSection = () => {
           />
         </motion.div>
 
-        {/* Enhanced Globe Section */}
+        {/* Enhanced Globe Section
         <motion.div 
           className="flex flex-col items-center mb-20"
           variants={itemVariants}
@@ -338,7 +335,7 @@ const SkillsSection = () => {
               <IconCloudDemo />
             </div>
           </motion.div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Enhanced Skills Grid */}
         <motion.div 
@@ -359,21 +356,6 @@ const SkillsSection = () => {
           ))}
         </motion.div>
       </section>
-
-      {/* Enhanced Styles */}
-      <style>{`
-        @keyframes shimmer {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(100%);
-          }
-        }
-        .animate-shimmer {
-          animation: shimmer 2s infinite;
-        }
-      `}</style>
     </main>
   );
 };

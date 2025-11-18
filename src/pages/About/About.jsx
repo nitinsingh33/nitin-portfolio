@@ -49,7 +49,7 @@ export default function About() {
     <>
       <section 
         id="about" 
-        className="py-16 md:py-32 text-gray-900 dark:text-white bg-gray-50 dark:bg-[#020617] transition-colors duration-300 relative overflow-hidden"
+        className="py-12 md:py-20 text-gray-900 dark:text-white bg-gray-50 dark:bg-[#020617] transition-colors duration-300 relative overflow-hidden"
       >
         <GridBackground />
         
