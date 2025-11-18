@@ -30,36 +30,33 @@ export default function WorkExperience() {
   const experiences = [
     {
       id: 1,
-      company: "TechCorp Solutions",
-      position: "Senior Frontend Developer",
-      location: "San Francisco, CA",
-      duration: "Jan 2022 - Present",
-      type: "Full-time",
-      icon: "💻",
+      company: "Hero MotoCorp (EMBU)",
+      position: "Software Developer Intern",
+      location: "DLF, Gurugram",
+      duration: "July 2025 - Oct 2025",
+      type: "Internship",
+      icon: <img src="/heromoto.png" alt="Hero MotoCorp" className="w-8 h-8 rounded" />,
       colorTheme: {
-        border: "border-teal-200/50 hover:border-teal-300/70 dark:border-teal-800/50 dark:hover:border-teal-600/70",
-        accent: "text-teal-600 dark:text-teal-400",
-        badge: "bg-teal-50 text-teal-700 border-teal-200 dark:bg-teal-900/20 dark:text-teal-300 dark:border-teal-800"
+        border: "border-red-200/50 hover:border-red-300/70 dark:border-red-800/50 dark:hover:border-red-600/70",
+        accent: "text-red-600 dark:text-red-400",
+        badge: "bg-red-50 text-red-700 border-red-200 dark:bg-red-900/20 dark:text-red-300 dark:border-red-800"
       },
       description:
-        "Led the development of responsive web applications using React and Next.js. Collaborated with cross-functional teams to deliver high-quality user experiences and improved application performance by 40%.",
-      technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "GraphQL"],
+        "Built Hero’s domain-specific EV-GPT (Synapse) RAG system using internal EV data, enabling the strategy team to retrieve accurate insights instantly. Developed a dedicated CSV-query engine that transformed raw internal EV datasets into structured, actionable outputs. Enhanced the existing EV newsletter pipeline by improving categorization, relevance filtering, and recency sorting to deliver sharper market updates for CXOs.",
+      technologies: ["FastAPI", "LangChain", "Python", "Streamlit", "Pinecone DB"],
       achievements: [
-        "Architected component library used across 5+ products, reducing development time by 60%",
-        "Improved Core Web Vitals: LCP from 4.2s → 1.1s, FID from 180ms → 45ms",
-        "Mentored 3 junior developers and conducted 50+ code reviews, improving team velocity by 35%",
-        "Reduced bundle size by 30% (2.1MB → 1.5MB) through tree-shaking and lazy loading",
-        "Implemented automated testing pipeline with 85% code coverage",
+        "Delivered two production-ready AI tools adopted by the strategy team for daily EV insights.",
+        "Improved newsletter relevance and accuracy, reducing manual cleanup and misclassification",
       ],
-      website: "https://techcorp.com",
+      website: "https://drive.google.com/file/d/13yV599Jrm2qrhOrWP3e2o0zIBet3rJaP/view?usp=drive_link",
     },
     {
       id: 2,
-      company: "StartupXYZ",
-      position: "Full Stack Developer",
-      location: "Remote",
-      duration: "Mar 2020 - Dec 2021",
-      type: "Full-time",
+      company: "The Earth Care Foundation",
+      position: "Backend Developer",
+      location: "Saket, New Delhi",
+      duration: "Mar 2025 - May 2025",
+      type: "Internship",
       icon: "🚀",
       colorTheme: {
         border: "border-blue-200/50 hover:border-blue-300/70 dark:border-blue-800/50 dark:hover:border-blue-600/70",
@@ -141,21 +138,11 @@ export default function WorkExperience() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <motion.div
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-emerald-500/10 border border-blue-500/20 mb-6 backdrop-blur-sm"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Building2 className="w-5 h-5 text-blue-500 dark:text-blue-400" />
-            <span className="text-blue-500 dark:text-blue-400 font-medium">Professional Journey</span>
-          </motion.div>
-          
-          <h2 className="relative z-10 max-w-4xl mx-auto text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 dark:text-white mb-6">
+          <h2 className="relative z-10 max-w-4xl mx-auto text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 dark:text-white mb-6">
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
-              Work Experience
+              Work
             </span>
-            <br />
-            <span className="text-gray-900 dark:text-white">& Achievements</span>
+            <span className="text-gray-900 dark:text-white"> Experience</span>
           </h2>
           
           <motion.div 
