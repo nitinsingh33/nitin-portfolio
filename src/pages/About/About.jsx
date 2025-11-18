@@ -82,23 +82,12 @@ export default function About() {
         >
           {/* Enhanced Title Section */}
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <motion.div
-              className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-emerald-500/10 border border-blue-500/20 mb-6 backdrop-blur-sm"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Zap className="w-5 h-5 text-blue-500 dark:text-blue-400" />
-              <span className="text-blue-500 dark:text-blue-400 font-medium">About Me</span>
-            </motion.div>
-            
-            <h2 className="relative z-10 max-w-4xl mx-auto text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 dark:text-white mb-6">
+            <h2 className="relative z-10 max-w-4xl mx-auto text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-gray-900 dark:text-white mb-6">
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
-                Thinker, Coder,
+                About
               </span>
-              <br />
-              <span className="text-gray-900 dark:text-white">Builder & Doer</span>
+              <span className="text-gray-900 dark:text-white"> Me</span>
             </h2>
-            
             <motion.div 
               className="w-24 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto rounded-full"
               initial={{ width: 0 }}
@@ -109,7 +98,7 @@ export default function About() {
 
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 items-start">
             {/* Enhanced Image Section */}
-            <motion.div variants={itemVariants} className="relative lg:sticky lg:top-8">
+            <motion.div variants={itemVariants} className="relative lg:sticky lg:top-8 max-w-md mx-auto lg:mx-0">
               <div className="relative group">
                 {/* Gradient border with hover effect */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-emerald-500 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
@@ -127,11 +116,11 @@ export default function About() {
             </motion.div>
 
             {/* Enhanced Content Section */}
-            <motion.div variants={itemVariants} className="relative space-y-8 lg:pt-4">
+            <motion.div variants={itemVariants} className="relative space-y-4 lg:pt-2">
               {/* Introduction */}
-              <div className="space-y-6">
+              <div className="space-y-3">
                 <motion.p 
-                  className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed"
+                  className="text-base text-gray-700 dark:text-gray-200 leading-normal"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
@@ -141,12 +130,12 @@ export default function About() {
                     className="inline-flex items-center ml-2"
                     whileHover={{ scale: 1.1 }}
                   >
-                    <Coffee className="w-5 h-5 text-amber-500" />
+                    <Coffee className="w-4 h-4 text-amber-500" />
                   </motion.span>
                 </motion.p>
                 
                 <motion.p 
-                  className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed"
+                  className="text-base text-gray-700 dark:text-gray-200 leading-normal"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
@@ -155,7 +144,7 @@ export default function About() {
                 </motion.p>
 
                 <motion.p 
-                  className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed"
+                  className="text-base text-gray-700 dark:text-gray-200 leading-normal"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.5 }}
@@ -166,20 +155,20 @@ export default function About() {
 
               {/* Enhanced Quote Section */}
               <motion.div 
-                className="relative p-8 rounded-2xl bg-gradient-to-br from-gray-100/50 to-gray-200/50 dark:from-gray-800/50 dark:to-gray-900/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50"
+                className="relative p-4 rounded-xl bg-gradient-to-br from-gray-100/50 to-gray-200/50 dark:from-gray-800/50 dark:to-gray-900/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="absolute top-4 left-4">
-                  <Lightbulb className="w-6 h-6 text-yellow-500" />
+                <div className="absolute top-3 left-3">
+                  <Lightbulb className="w-5 h-5 text-yellow-500" />
                 </div>
                 
-                <blockquote className="border-l-4 border-gradient-to-b from-blue-500 to-emerald-500 pl-6 mt-4">
-                  <p className="text-gray-700 dark:text-gray-200 text-lg italic leading-relaxed">
-                    &ldquo;I&apos;m a lifelong learner and problem solver, driven by a passion for building innovative solutions that make a real impact. My goal is to contribute meaningful value to the developer community and create applications that enhance people&apos;s lives.&rdquo;
+                <blockquote className="border-l-4 border-gradient-to-b from-blue-500 to-emerald-500 pl-4 mt-2">
+                  <p className="text-gray-700 dark:text-gray-200 text-sm italic leading-normal">
+                    &ldquo;I&apos;m a lifelong learner and problem solver, driven by a passion for building innovative solutions that make a real impact. My goal is to contribute meaningful value to the developer community.&rdquo;
                   </p>
 
-                  <div className="mt-8 space-y-4">
+                  <div className="mt-4 space-y-2">
                     <cite className="block font-semibold text-gray-900 dark:text-white text-lg">
                       Nitin Singh
                     </cite>

@@ -120,7 +120,7 @@ const profile = {
               {/* Description */}
               <div className="relative mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0">
                 <p className="text-xs sm:text-sm lg:text-base text-gray-200 leading-relaxed font-medium font-sans">
-                  SDE Intern @Hero MotoCorp (EMBU) • BS in CS & Data Analytics @IIT Patna • Former Intern @Apna College • Full Stack Developer • GPT & Automation
+                  Former SDE Intern @Hero MotoCorp (EMBU) • BS in CS & Data Analytics @IIT Patna • Former Intern @Apna College • Full Stack Developer • LLM & Automation
                 </p>
               </div>
 
@@ -189,7 +189,7 @@ const profile = {
                   <i className="fas fa-code"></i>&nbsp;&nbsp;Problem Solver
                 </div>
               </div>
-              <div className="hidden lg:block absolute top-[17rem] left-[70%] transform -translate-x-1/2 animate-float">
+              <div className="hidden lg:block absolute top-[16rem] left-[70%] transform -translate-x-1/2 animate-float">
                 <div className="px-4 py-2 rounded-lg bg-amber-500/10 backdrop-blur-sm border border-amber-500/20 text-amber-400">
                   <i className="fas fa-lightbulb"></i>&nbsp;&nbsp;Innovation
                 </div>

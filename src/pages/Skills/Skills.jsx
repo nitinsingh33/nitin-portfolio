@@ -302,11 +302,12 @@ const SkillsSection = () => {
 
           <motion.h2 
             variants={itemVariants}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 dark:text-white mb-6"
+            className="relative z-10 max-w-4xl mx-auto text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-gray-900 dark:text-white mb-6"
           >
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
-              Tech Stack & Skills
+              Tech Stack &
             </span>
+            <span className="text-gray-900 dark:text-white"> Skills</span>
           </motion.h2>
 
           <motion.div 
