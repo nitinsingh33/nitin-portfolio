@@ -14,11 +14,11 @@ const EducationSection = () => {
 
   const educationData = [
     {
-      degree: "Computer Science and Data Analytics (B.Tech)",
+      degree: "Computer Science and Data Analytics (BS)",
       school: "IIT Patna",
-      mascot: "📘",
+      mascot: "",
       year: "2023-2027",
-      achievements: ["CPI: 8.15", "Core: Computer Science"],
+      achievements: ["CPI: 8/10", "Core: Computer Science"],
       skills: ["Java", "Python", "React", "Node"],
       description:
         "Focused on core computer science subjects with emphasis on practical software development and data analytics methodologies.",
@@ -26,7 +26,7 @@ const EducationSection = () => {
     {
       degree: "Senior Secondary Certificate (CBSE)",
       school: "Rose Land Public School, Gurugram",
-      mascot: "📗",
+      mascot: "",
       year: "2021-2023",
       achievements: ["Percentage: 91%", "Subject: PCM"],
       skills: ["Mathematics", "Physics", "Chemistry", "Computer Science"],
@@ -36,46 +36,16 @@ const EducationSection = () => {
   ];
 
   const certificatesData = [
-    {
-      title: "AWS Certified Developer Associate",
-      issuer: "Amazon Web Services",
-      status: "Target: December 2025",
-      credentialId: "Planning to achieve",
-      icon: "☁️",
-      color: "from-orange-500 to-yellow-500",
-      skills: ["AWS Lambda", "EC2", "S3", "DynamoDB", "CloudFormation"],
-      description: "Validates technical expertise in developing and maintaining applications on AWS platform."
-    },
-    {
-      title: "Microsoft Azure Fundamentals",
-      issuer: "Microsoft",
-      status: "Target: January 2026",
-      credentialId: "Planning to achieve",
-      icon: "🔷",
-      color: "from-blue-500 to-cyan-500",
-      skills: ["Azure Services", "Cloud Concepts", "Security", "Pricing"],
-      description: "Demonstrates foundational knowledge of cloud services and Microsoft Azure."
-    },
-    {
-      title: "JavaScript Algorithms and Data Structures",
-      issuer: "freeCodeCamp",
-      status: "Target: October 2025",
-      credentialId: "In Progress",
-      icon: "🟨",
-      color: "from-yellow-500 to-orange-500",
-      skills: ["ES6", "Algorithms", "Data Structures", "Functional Programming"],
-      description: "Comprehensive certification covering modern JavaScript and algorithmic thinking."
-    },
-    {
-      title: "React Developer Certification",
-      issuer: "Meta (Facebook)",
-      status: "Target: November 2025",
-      credentialId: "Planning to achieve",
-      icon: "⚛️",
-      color: "from-blue-400 to-blue-600",
-      skills: ["React", "JSX", "Hooks", "Context API", "Testing"],
-      description: "Professional certification validating advanced React development skills."
-    }
+    // {
+    //   title: "AWS Certified Developer Associate",
+    //   issuer: "Amazon Web Services",
+    //   status: "Target: December 2025",
+    //   credentialId: "Planning to achieve",
+    //   icon: "☁️",
+    //   color: "from-orange-500 to-yellow-500",
+    //   skills: ["AWS Lambda", "EC2", "S3", "DynamoDB", "CloudFormation"],
+    //   description: "Validates technical expertise in developing and maintaining applications on AWS platform."
+    // },
   ];
 
   const containerVariants = {
@@ -117,7 +87,7 @@ const EducationSection = () => {
               Education
             </span>
             <br />
-            <span className="text-gray-900 dark:text-white">& Certifications</span>
+            {/* <span className="text-gray-900 dark:text-white">& Certifications</span> */}
           </h2>
           
           <motion.div 
@@ -130,9 +100,6 @@ const EducationSection = () => {
 
         {/* Education Section */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
-            Academic Background
-          </h2>
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -202,9 +169,9 @@ const EducationSection = () => {
 
         {/* Certifications Section */}
         <div>
-          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+          {/* <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
             Professional Certifications
-          </h2>
+          </h2> */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
