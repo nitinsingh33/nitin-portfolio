@@ -1,5 +1,5 @@
 import  { useState } from "react";
-import { Send, MapPin, Mail, Phone, Clock, Github, Linkedin, X } from "lucide-react";
+import { Send, MapPin, Mail, Phone, Github, Linkedin, X } from "lucide-react";
 import { motion } from "framer-motion";
 import GridBackground from "@/components/GridBackground";
 
@@ -93,21 +93,13 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <motion.div
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-emerald-500/10 border border-blue-500/20 mb-6 backdrop-blur-sm"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="text-2xl">💬</span>
-            <span className="text-blue-500 dark:text-blue-400 font-medium">Let&apos;s Connect</span>
-          </motion.div>
           
-          <h2 className="relative z-10 max-w-4xl mx-auto text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 dark:text-white mb-6">
+          
+          <h2 className="relative z-10 max-w-4xl mx-auto text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 dark:text-white mb-6">
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
-              Get in
+              Let&apos;s
             </span>
-            <br />
-            <span className="text-gray-900 dark:text-white">Touch</span>
+            <span className="text-gray-900 dark:text-white"> Connect</span>
           </h2>
           
           <motion.div 
@@ -118,18 +110,7 @@ export default function Contact() {
           />
         </motion.div>
 
-        {/* Availability Status */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="flex justify-center mb-12"
-        >
-          <div className="bg-green-500/10 border border-green-500/30 rounded-full px-6 py-3 flex items-center gap-2">
-            <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-            <span className="text-green-400 font-medium">Available for new projects</span>
-          </div>
-        </motion.div> */}
+        
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Contact Info */}
@@ -153,7 +134,7 @@ export default function Contact() {
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white">Email</h3>
                   <p className="text-gray-600 dark:text-gray-400">nitinsingh.iitp@gmail.com</p>
-                  <p className="text-sm text-cyan-600 dark:text-cyan-400">Response within 24 hours</p>
+                  {/* <p className="text-sm text-cyan-600 dark:text-cyan-400">Response within 24 hours</p> */}
                 </div>
               </motion.div>
 
@@ -170,7 +151,7 @@ export default function Contact() {
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white">Location</h3>
                   <p className="text-gray-600 dark:text-gray-400">Gurugram, Haryana -122001</p>
-                  <p className="text-sm text-blue-600 dark:text-blue-400">Open to remote work</p>
+                  {/* <p className="text-sm text-blue-600 dark:text-blue-400">Open to remote work</p> */}
                 </div>
               </motion.div>
 
@@ -187,7 +168,7 @@ export default function Contact() {
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white">Phone</h3>
                   <p className="text-gray-600 dark:text-gray-400">+91 8368297391</p>
-                  <p className="text-sm text-purple-600 dark:text-purple-400">Available 9 AM - 6 PM IST</p>
+                  {/* <p className="text-sm text-purple-600 dark:text-purple-400">Available 9 AM - 6 PM IST</p> */}
                 </div>
               </motion.div>
               
@@ -243,7 +224,7 @@ export default function Contact() {
                   {field !== "message" ? (
                     <input
                       type={field === "email" ? "email" : "text"}
-                      placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
+                      placeholder={` ${field.charAt(0).toUpperCase() + field.slice(1)}`}
                       className={`w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-[#0f172a] border transition-all duration-300 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 ${
                         errors[field] 
                           ? "border-red-500 focus:border-red-400 focus:shadow-lg focus:shadow-red-500/20" 
@@ -256,7 +237,7 @@ export default function Contact() {
                     />
                   ) : (
                     <textarea
-                      placeholder="Your Message"
+                      placeholder="Message"
                       rows="4"
                       className={`w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-[#0f172a] border transition-all duration-300 resize-none text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 ${
                         errors.message 

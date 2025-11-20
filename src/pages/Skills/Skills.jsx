@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import IconCloudDemo from "@/components/globe";
 import { Code2, Database, Layout, Cpu, Cloud, Zap, Globe } from "lucide-react";
 import GridBackground from "@/components/GridBackground";
 import {
@@ -289,6 +288,7 @@ const SkillsSection = () => {
       </div>
 
       <section className="container mx-auto px-4 py-12 md:py-16 relative z-10">
+        
         {/* Enhanced Title Section */}
         <motion.div 
           className="text-center mb-20"
@@ -316,26 +316,7 @@ const SkillsSection = () => {
           />
         </motion.div>
 
-        {/* Enhanced Globe Section
-        <motion.div 
-          className="flex flex-col items-center mb-20"
-          variants={itemVariants}
-          initial="hidden"
-          animate={isVisible ? "visible" : "hidden"}
-        >
-          <motion.div 
-            className="relative p-8 rounded-3xl bg-gradient-to-br from-gray-100/50 to-gray-200/50 dark:from-gray-800/50 dark:to-gray-900/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 mb-6"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="absolute top-4 left-4">
-              <Globe className="w-6 h-6 text-blue-500 dark:text-blue-400" />
-            </div>
-            <div className="pt-4">
-              <IconCloudDemo />
-            </div>
-          </motion.div>
-        </motion.div> */}
+  
 
         {/* Enhanced Skills Grid */}
         <motion.div 

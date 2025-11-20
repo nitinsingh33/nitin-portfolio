@@ -6,25 +6,25 @@ import { ExternalLink, Github, Star, Globe, Code, Zap } from "lucide-react";
 
 const projects = [
   {
-    title: "Olova! A Lightweight JavaScript Library",
+    title: "EV-GPT: AI-Powered EV Insights Platform",
     description:
-      "A modern, production-ready JavaScript library with 1.2k+ GitHub stars. Built with zero dependencies, serving 10k+ developers worldwide. Implements advanced optimization techniques including tree-shaking, lazy loading, and micro-bundling for maximum performance.",
-    image: "https://i.postimg.cc/DwgWTfP0/Annotation-2025-03-19-113338.png",
-    tags: ["JavaScript", "UI Library", "Open Source", "NPM"],
-    techStack: ["Vanilla JS", "CSS3", "Webpack", "Jest", "ESLint"],
-    githubLink: "https://github.com/olovajs/olova",
-    liveLink: "https://olova.js.org/",
+      "Enterprise-grade EV-GPT platform delivering real-time electric vehicle market insights using advanced AI models. Features include natural language querying, dynamic report generation, and integration with internal EV datasets to provide actionable intelligence for CXOs and strategy teams.",
+    image: "",
+    tags: ["JavaScript", "AI", "Open Source", "NPM"],
+    techStack: ["LangChain", "FastAPI", "Python", "Streamlit", "Pinecone DB"],
+    githubLink: "https://github.com/nitinsingh33/Agentic-RAG-Langchain",
+    liveLink: "",
     featured: true,
-    year: "2024",
+    year: "2025",
     status: "Active Development",
     highlights: ["1.2k+ GitHub Stars", "10k+ Weekly Downloads", "98% Test Coverage", "15kb Minified Size"]
   },
   {
-    title: "CodeWhisperer - Scalable Code Editor Platform",
+    title: "",
     description:
-      "Enterprise-grade online IDE supporting 1000+ concurrent users with real-time collaboration. Implements WebSocket optimization, custom parsing algorithms, and distributed architecture. Features intelligent code completion using machine learning models.",
+      "",
     image: "https://i.postimg.cc/J4jPVFY0/Annotation-2025-04-01-204723.png",
-    tags: ["React", "Scalability", "Real-time", "Machine Learning"],
+    tags: ["Scalability", "Real-time", "Machine Learning"],
     techStack: ["React", "Monaco Editor", "Socket.io", "Node.js", "Redis", "Docker"],
     githubLink: "https://github.com/seraprogrammer/codewhisperer",
     liveLink: "https://codewhisperer.vercel.app/",
@@ -183,24 +183,14 @@ export default function Projects() {
           animate={isInView ? "visible" : "hidden"}
           className="text-center mb-20"
         >
-          <motion.div
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-emerald-500/10 border border-blue-500/20 mb-6 backdrop-blur-sm"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="text-2xl">🚀</span>
-            <span className="text-blue-500 dark:text-blue-400 font-medium">Portfolio Showcase</span>
-          </motion.div>
-          
           <motion.h2 
             variants={titleVariants}
-            className="relative z-10 max-w-4xl mx-auto text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 dark:text-white mb-6"
+            className="relative z-10 max-w-4xl mx-auto text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 dark:text-white mb-6"
           >
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
               Featured
             </span>
-            <br />
-            <span className="text-gray-900 dark:text-white">Projects</span>
+            <span className="text-gray-900 dark:text-white"> Projects</span>
           </motion.h2>
           
           <motion.div
